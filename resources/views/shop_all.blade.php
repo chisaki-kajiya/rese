@@ -1,0 +1,1 @@
+<p>shop_all.blade.php</p>

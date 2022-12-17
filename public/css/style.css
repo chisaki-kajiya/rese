@@ -1,0 +1,97 @@
+/* register.blade.php */
+body {
+  background-color: #eeeeee;
+}
+
+.header {
+  display: flex;
+  padding: 50px 150px 0;
+}
+
+.header__icon {
+  font-size: 20px;
+  background-color: #305dff;
+  padding: 6px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, .5);
+  color: #ffffff;
+  margin-right: 20px;
+}
+
+.header__title {
+  color: #305dff;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+}
+
+.box {
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, .5);
+}
+
+.box__title {
+  background-color: #305dff;
+  border-radius: 5px 5px 0 0;
+  color: white;
+  padding: 20px;
+  font-size: 20px;
+}
+
+.box__contents {
+  padding: 20px 30px;
+}
+
+.box__contents-item {
+  margin-bottom: 20px;
+}
+
+.box__contents-item--icon {
+  display: inline-block;
+  font-size: 25px;
+  margin-right: 10px;
+  color: #4b4b4b;
+  width: 30px;
+  text-align: center;
+}
+
+.box__contents-item--input {
+  font-size: 18px;
+  border: none;
+  color: #4b4b4b;
+  border-bottom: 1px solid #4b4b4b;
+  width: 300px;
+}
+
+.box__contents-btn {
+  background-color: #305dff;
+  border: none;
+  border-radius: 5px;
+  color: #ffffff;
+  padding: 10px 15px;
+  display: block;
+  margin: 0 0 0 auto;
+}
+
+/* thanks.blade.php */
+.box__contents-text {
+  font-weight: normal;
+  font-size: 20px;
+  margin: 50px 20px;
+}
+
+.center {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.mb50 {
+  margin-bottom: 50px;
+}
