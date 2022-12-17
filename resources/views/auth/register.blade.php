@@ -22,7 +22,7 @@
                 <span class="box__contents-item--icon">
                     <i class="fa fa-envelope" aria-hidden="true"></i>
                 </span>
-                <x-input id="email" class="box__contents-item--input" type="email" name="email" :value="old('email')" required />
+                <x-input id="email" class="box__contents-item--input" type="email" name="email" :value="old('email')" required onfocus="if (this.value == 'Email') this.value = '';" onblur="if (this.value == '') this.value = 'Email';" value="Email" />
             </div>
 
             <!-- Password -->
@@ -30,12 +30,7 @@
                 <span class="box__contents-item--icon">
                     <i class="fa fa-lock" aria-hidden="true"></i>
                 </span>
-                <x-input id="password" class="box__contents-item--input" type="password" name="password" required autocomplete="new-password" />
-            </div>
-
-            <!-- Confirm Password -->
-            <div class="box__contents-item">
-                <x-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required />
+                <x-input id="password" class="box__contents-item--input" type="text" name="password" required autocomplete="new-password" onfocus="if (this.value == 'Password') this.value = '', this.type = 'password';" onblur="if (this.value == '') this.value = 'Password', this.type = 'text';" value="Password" />
             </div>
 
             <div class="flex items-center justify-end mt-4">
