@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Area;
 use App\Models\Genre;
-use App\Models\Like;
 use App\Models\Shop;
 
 class ShopController extends Controller
@@ -15,7 +14,6 @@ class ShopController extends Controller
         $areas = Area::all();
         $genres = Genre::all();
         $shops = Shop::all();
-        $shop = Shop::find(1);
         return view('shop_all', ['areas' => $areas, 'genres' => $genres, 'shops' => $shops]);
     }
 }

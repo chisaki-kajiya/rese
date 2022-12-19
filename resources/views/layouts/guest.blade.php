@@ -9,7 +9,6 @@
     <title>Rese|@yield('title')</title>
 
     <!-- Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
@@ -28,11 +27,8 @@
             <nav class="drawer-menu" id="drawer-menu">
                 <ul>
                     <li><a href="/" class="drawer-menu__item">Home</a></li>
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-                    <li><button class="drawer-menu__item">Logout</button></li>
-                </form>
-                    <li><a href="/mypage" class="drawer-menu__item">Mypage</a></li>
+                    <li><a href="/register" class="drawer-menu__item">Registration</a></li>
+                    <li><a href="/login" class="drawer-menu__item">Login</a></li>
                 </ul>
             </nav>
 
@@ -45,7 +41,7 @@
             <h1 class="header__title">Rese</h1>
 
         </div>
-    
+
     </header>
     <main>
         <div class="box-wrapper">
@@ -55,5 +51,6 @@
     </main>
 </body>
 
-    <script src="/js/main.js"></script>
+<script src="/js/main.js"></script>
+
 </html>

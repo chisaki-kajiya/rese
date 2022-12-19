@@ -18,12 +18,17 @@
 
       <nav class="drawer-menu" id="drawer-menu">
         <ul>
-            <li><a href="/" class="drawer-menu__item">Home</a></li>
+          <li><a href="/" class="drawer-menu__item">Home</a></li>
+          @if(Auth::check())
           <form method="POST" action="{{ route('logout') }}">
             @csrf
             <li><button class="drawer-menu__item">Logout</button></li>
           </form>
             <li><a href="/mypage" class="drawer-menu__item">Mypage</a></li>
+          @else
+            <li><a href="/register" class="drawer-menu__item">Registration</a></li>
+            <li><a href="/login" class="drawer-menu__item">Login</a></li>
+          @endif
         </ul>
       </nav>
 
