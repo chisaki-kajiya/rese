@@ -13,15 +13,16 @@
 
 <body>
   <header class="header">
-    <span class="header__icon">
-      <i class="fa fa-bars"></i>
-    </span>
-    <h1 class="header__title">Rese</h1>
+    <nav class="header-left">
+      <span class="header__icon">
+        <i class="fa fa-bars"></i>
+      </span>
+      <h1 class="header__title">Rese</h1>
+    </nav>
+    @yield('header_right')
   </header>
-  <main class="main">
-    <div class="box">
-      @yield('content')
-    </div>
+  <main>
+    @yield('content')
   </main>
 </body>
 

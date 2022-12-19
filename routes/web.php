@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LikeController;
+use App\Http\Controllers\ShopController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,8 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('shop_all');
-});
+Route::get('/', [ShopController::class, 'index']);
+
+Route::post('/like', [LikeController::class, 'create']);
+Route::post('/unlike', [LikeController::class, 'delete']);
 
 require __DIR__.'/auth.php';

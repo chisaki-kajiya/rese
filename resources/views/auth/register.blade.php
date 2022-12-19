@@ -32,12 +32,7 @@
                 </span>
                 <x-input id="password" class="box__contents-item--input" type="text" name="password" required autocomplete="new-password" onfocus="if (this.value == 'Password') this.value = '', this.type = 'password';" onblur="if (this.value == '') this.value = 'Password', this.type = 'text';" value="Password" />
             </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <x-button class="box__contents-btn">
-                    {{ __('登録') }}
-                </x-button>
-            </div>
+            <x-button class="blue-btn">登録</x-button>
         </form>
     </div>
 </x-guest-layout>

@@ -32,7 +32,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return view('shop_all');
+        return redirect('/');
     }
 
     /**

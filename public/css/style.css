@@ -1,17 +1,22 @@
-/* register.blade.php */
+/* common */
 body {
   background-color: #eeeeee;
 }
 
 .header {
   display: flex;
+  justify-content: space-between;
   padding: 50px 150px 0;
+}
+
+.header-left {
+  display: flex;
 }
 
 .header__icon {
   font-size: 20px;
   background-color: #305dff;
-  padding: 6px;
+  padding: 10px;
   border-radius: 5px;
   box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, .5);
   color: #ffffff;
@@ -22,9 +27,10 @@ body {
   color: #305dff;
   font-size: 32px;
   font-weight: bold;
+  line-height: 40px;
 }
 
-.main {
+.box-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -35,9 +41,18 @@ body {
   background-color: white;
   border-radius: 5px;
   box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, .5);
-  margin: 0 auto;
 }
 
+.flex {
+  display: flex;
+}
+
+.spacebtw {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* register.blade.php */
 .box__title {
   background-color: #305dff;
   border-radius: 5px 5px 0 0;
@@ -71,15 +86,18 @@ body {
   width: 300px;
 }
 
-.box__contents-btn {
+.blue-btn {
   background-color: #305dff;
   border: none;
   border-radius: 5px;
   color: #ffffff;
   padding: 10px 15px;
   display: inline-block;
-  margin: 0 0 0 auto;
   text-decoration: none;
+}
+
+.right {
+  margin: 0 0 0 auto;
 }
 
 /* thanks.blade.php */
@@ -101,4 +119,94 @@ body {
 
 .mb50 {
   margin-bottom: 50px;
+}
+
+/* shop_all.blade.php */
+.search-box {
+  background-color: #ffffff;
+}
+
+.p10 {
+  padding: 0 10px;
+}
+
+.align-center {
+  display: flex;
+  align-items: center;
+}
+
+.search-box__select {
+  border: none;
+  padding-right: 20px;
+  color: #4b4b4b;
+}
+
+.gray-bar {
+  display: inline-block;
+  width: 2px;
+  height: 25px;
+  background-color: #eeeeee;
+  margin: 0 10px;
+}
+
+.search-box__input {
+  border: none;
+  color: #4b4b4b;
+}
+
+.shop-card-wrapper{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 30px 100px;
+}
+
+.shop-card {
+  background-color: #ffffff;
+  height: 280px;
+  width: 22%;
+  border-radius: 5px;
+  margin: 20px 10px;
+}
+
+.shop-card__top {
+  height: 50%;
+}
+
+.shop-card__image {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 5px 5px 0 0;
+}
+
+.h18 {
+  height: 18px;
+}
+
+.shop-card__content {
+  padding: 20px;
+}
+
+.shop-card__name {
+  margin-bottom: 10px;
+}
+
+.shop-card__tag--area {
+  margin-right: 10px;
+}
+
+.mt20 {
+  margin-top: 20px;
+}
+
+.shop-card__like {
+  color: #eeeeee;
+  background-color: #ffffff;
+  border: none;
+  font-size: 40px;
+}
+
+.red {
+  color: #ff0000;
 }

@@ -24,15 +24,18 @@
 
 <body>
     <header class="header">
-        <span class="header__icon">
-            <i class="fa fa-bars"></i>
-        </span>
-        <h1 class="header__title">Rese</h1>
+        <nav class="header-left">
+            <span class="header__icon">
+                <i class="fa fa-bars"></i>
+            </span>
+            <h1 class="header__title">Rese</h1>
+        </nav>
     </header>
-    <main class="main">
-        <div class="box">
-            {{ $slot }}
-        </div>
+    <main>
+        <div class="box-wrapper">
+            <div class="box center">
+                {{ $slot }}
+            </div>
     </main>
 </body>
 

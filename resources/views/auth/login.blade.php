@@ -30,8 +30,8 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                <x-button class="box__contents-btn">
-                    {{ __('ログイン') }}
+                <x-button class="blue-btn">
+                    ログイン
                 </x-button>
             </div>
         </form>
