@@ -1,8 +1,85 @@
-/* common */
 body {
   background-color: #eeeeee;
 }
 
+/* common elements*/
+.blue-btn {
+  background-color: #305dff;
+  border: none;
+  border-radius: 5px;
+  color: #ffffff;
+  padding: 10px 15px;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.blue-btn:hover {
+  background-color: #ffffff;
+  color: #305dff;
+  border: 1px solid #305dff;
+  border-radius: 20px;
+  transition: .5s;
+}
+
+/* common colors, sizes, positions */
+.red {
+  color: #ff0000;
+}
+
+.h18 {
+  height: 18px;
+}
+
+.w20 {
+  width: 20px;
+}
+
+.w40 {
+  width: 40px;
+}
+
+.p10 {
+  padding: 0 10px;
+}
+
+.mb50 {
+  margin-bottom: 50px;
+}
+
+.mt20 {
+  margin-top: 20px;
+}
+
+.center {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.right {
+  margin: 0 0 0 auto;
+}
+
+.flex {
+  display: flex;
+}
+
+.spacebtw {
+  display: flex;
+  justify-content: space-between;
+}
+
+.align-center {
+  display: flex;
+  align-items: center;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+/* header */
 .header {
   display: flex;
   justify-content: space-between;
@@ -13,23 +90,95 @@ body {
   display: flex;
 }
 
-.header__icon {
-  font-size: 20px;
-  background-color: #305dff;
-  padding: 10px;
-  border-radius: 5px;
-  box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, .5);
-  color: #ffffff;
-  margin-right: 20px;
-}
-
 .header__title {
   color: #305dff;
   font-size: 32px;
   font-weight: bold;
   line-height: 40px;
+  margin-left: 40px;
 }
 
+/* header icon */
+.header__icon {
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+  left: 20px;
+  background-color: #305dff;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, .5);
+  cursor: pointer;
+}
+
+.icon__line--top,
+.icon__line--middle,
+.icon__line--bottom {
+  display: inline-block;
+  width: 50%;
+  height: 2px;
+  background-color: #ffffff;
+  position: absolute;
+  transition: 0.5s;
+}
+
+.icon__line--top {
+  top: 10px;
+}
+
+.icon__line--middle {
+  top: 19px;
+}
+
+.icon__line--bottom {
+  top: 28px;
+}
+
+.header__icon.open span:nth-of-type(1) {
+  top: 19px;
+  transform: rotate(45deg);
+}
+
+.header__icon.open span:nth-of-type(2) {
+  opacity: 0;
+}
+
+.header__icon.open span:nth-of-type(3) {
+  top: 19px;
+  transform: rotate(-45deg);
+}
+
+/* drawer-menu */
+.drawer-menu {
+  position: absolute;
+    top: 0px;
+  height: 100vh;
+  width: 100%;
+  left: -100%;
+  background-color: #ffffff;
+  transition: .5s;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.drawer-menu__item {
+  color: #305dff;
+  text-decoration: none;
+  display: inline-block;
+  margin: 30px 0;
+  font-size: 32px;
+  border: none;
+  background-color: white;
+}
+
+.in {
+  transform: translateX(100%)
+}
+
+/* register.blade.php */
+/* login.blade.php */
 .box-wrapper {
   display: flex;
   justify-content: center;
@@ -43,16 +192,6 @@ body {
   box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, .5);
 }
 
-.flex {
-  display: flex;
-}
-
-.spacebtw {
-  display: flex;
-  justify-content: space-between;
-}
-
-/* register.blade.php */
 .box__title {
   background-color: #305dff;
   border-radius: 5px 5px 0 0;
@@ -86,25 +225,7 @@ body {
   width: 300px;
 }
 
-.blue-btn {
-  background-color: #305dff;
-  border: none;
-  border-radius: 5px;
-  color: #ffffff;
-  padding: 10px 15px;
-  display: inline-block;
-  text-decoration: none;
-}
-
-.right {
-  margin: 0 0 0 auto;
-}
-
 /* thanks.blade.php */
-.flex-column {
-  display: flex;
-  flex-direction: column;
-}
 
 .box__contents-text {
   font-weight: normal;
@@ -112,27 +233,9 @@ body {
   margin: 50px 20px;
 }
 
-.center {
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.mb50 {
-  margin-bottom: 50px;
-}
-
 /* shop_all.blade.php */
 .search-box {
   background-color: #ffffff;
-}
-
-.p10 {
-  padding: 0 10px;
-}
-
-.align-center {
-  display: flex;
-  align-items: center;
 }
 
 .search-box__select {
@@ -180,10 +283,6 @@ body {
   border-radius: 5px 5px 0 0;
 }
 
-.h18 {
-  height: 18px;
-}
-
 .shop-card__content {
   padding: 20px;
 }
@@ -196,17 +295,9 @@ body {
   margin-right: 10px;
 }
 
-.mt20 {
-  margin-top: 20px;
-}
-
 .shop-card__like {
   color: #eeeeee;
   background-color: #ffffff;
   border: none;
   font-size: 40px;
-}
-
-.red {
-  color: #ff0000;
 }

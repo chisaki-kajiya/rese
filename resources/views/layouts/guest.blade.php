@@ -17,19 +17,35 @@
     <link rel="stylesheet" href="/css/style.css">
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
     <script src="https://kit.fontawesome.com/b064dd4cf2.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <header class="header">
-        <nav class="header-left">
-            <span class="header__icon">
-                <i class="fa fa-bars"></i>
-            </span>
+
+        <div class="header-left">
+
+            <nav class="drawer-menu" id="drawer-menu">
+                <ul>
+                    <li><a href="/" class="drawer-menu__item">Home</a></li>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <li><button class="drawer-menu__item">Logout</button></li>
+                </form>
+                    <li><a href="/mypage" class="drawer-menu__item">Mypage</a></li>
+                </ul>
+            </nav>
+
+            <div class="header__icon w40" id="header__icon">
+                <span class="icon__line--top"></span>
+                <span class="icon__line--middle"></span>
+                <span class="icon__line--bottom"></span>
+            </div>
+
             <h1 class="header__title">Rese</h1>
-        </nav>
+
+        </div>
+    
     </header>
     <main>
         <div class="box-wrapper">
@@ -39,4 +55,5 @@
     </main>
 </body>
 
+    <script src="/js/main.js"></script>
 </html>

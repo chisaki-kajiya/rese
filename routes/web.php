@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\ShopController;
 
@@ -19,5 +20,7 @@ Route::get('/', [ShopController::class, 'index']);
 
 Route::post('/like', [LikeController::class, 'create']);
 Route::post('/unlike', [LikeController::class, 'delete']);
+
+Route::get('mypage', [HomeController::class, 'index']);
 
 require __DIR__.'/auth.php';
