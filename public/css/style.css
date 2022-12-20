@@ -23,6 +23,10 @@ body {
 }
 
 /* common colors, sizes, positions */
+.red {
+  color: #ff0000;
+}
+
 .h18 {
   height: 18px;
 }
@@ -37,6 +41,10 @@ body {
 
 .p10 {
   padding: 0 10px;
+}
+
+.mb10 {
+  margin-bottom: 10px;
 }
 
 .mb50 {
