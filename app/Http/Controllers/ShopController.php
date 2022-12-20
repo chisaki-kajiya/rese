@@ -16,4 +16,14 @@ class ShopController extends Controller
         $shops = Shop::all();
         return view('shop_all', ['areas' => $areas, 'genres' => $genres, 'shops' => $shops]);
     }
+
+    public function search(Request $request)
+    {
+        $areas = Area::all();
+        $genres = Genre::all();
+        $shop = Shop::query();
+        $shop->where('area_id', "{$request->area_id}");
+        $shops = $shop->get();
+        return view('shop_all', ['areas' => $areas, 'genres' => $genres, 'shops' => $shops]);
+    }
 }
