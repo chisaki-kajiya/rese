@@ -22,7 +22,12 @@ class ShopController extends Controller
         $areas = Area::all();
         $genres = Genre::all();
         $shop = Shop::query();
-        $shop->where('area_id', "{$request->area_id}");
+        if (isset($request->area_id)) {
+            $shop->where('area_id', "{$request->area_id}");
+        }
+        if (isset($request->genre_id)) {
+            $shop->where('genre_id', "{$request->genre_id}");
+        }
         $shops = $shop->get();
         return view('shop_all', ['areas' => $areas, 'genres' => $genres, 'shops' => $shops]);
     }

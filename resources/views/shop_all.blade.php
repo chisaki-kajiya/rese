@@ -3,9 +3,10 @@
 @section('title', 'ショップ一覧')
 
 @section('header_right')
-<div class="box p10 align-center">
-  <form action="/search" method="GET">
-    @csrf
+
+<form action="/search" method="GET">
+  @csrf
+  <div class="search-box box">
     <select class="search-box__select" name="area_id">
       <option value="">All area</option>
       @foreach($areas as $area)
@@ -17,7 +18,7 @@
 
     <span class="gray-bar"></span>
 
-    <select class="search-box__select">
+    <select class="search-box__select" name="genre_id">
       <option value="">All genre</option>
       @foreach($genres as $genre)
       <option value="{{ $genre->id }}">
@@ -28,10 +29,13 @@
 
     <span class="gray-bar"></span>
 
-    <input type=" text" value="Search ..." class="search-box__input" onfocus="if (this.value == 'Search ...') this.value = '';" onblur="if (this.value == '') this.value = 'Search ...';" value="Search ...">
-    <button>仮</button>
-  </form>
-</div>
+    <button class="search-box__search-icon">
+      <i class="fa fa-search" aria-hidden="true"></i>
+    </button>
+
+    <input type="text" value="Search ..." class="search-box__input" onfocus="if (this.value == 'Search ...') this.value = '';" onblur="if (this.value == '') this.value = 'Search ...';" value="Search ...">
+  </div>
+</form>
 @endsection
 
 @section('content')

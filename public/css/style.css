@@ -241,6 +241,11 @@ body {
 /* shop_all.blade.php */
 .search-box {
   background-color: #ffffff;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  padding: 10px;
 }
 
 .search-box__select {
@@ -256,6 +261,14 @@ body {
   height: 25px;
   background-color: #eeeeee;
   margin: 0 10px;
+}
+
+.search-box__search-icon {
+  border: none;
+  background-color: #ffffff;
+  padding: 0;
+  margin-right: 10px;
+  color: #4b4b4b;
 }
 
 .search-box__input {
