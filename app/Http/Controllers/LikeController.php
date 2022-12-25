@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Like;
-use App\Modeols\Shop;
+use App\Models\Shop;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 

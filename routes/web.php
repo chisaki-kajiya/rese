@@ -1,9 +1,10 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\ShopController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,8 @@ Route::get('/detail', [ShopController::class, 'detail']);
 Route::post('/like', [LikeController::class, 'create']);
 Route::post('/unlike', [LikeController::class, 'delete']);
 
-Route::get('mypage', [HomeController::class, 'index']);
+Route::get('/mypage', [HomeController::class, 'index']);
+
+Route::post('/book', [BookingController::class, 'create']);
 
 require __DIR__.'/auth.php';

@@ -368,10 +368,9 @@ body {
 
 .booking-form {
   background-color: #305dff;
-  padding: 30px 30px 0;
+  padding: 30px 30px 50px;
   box-sizing: border-box;
   border-radius: 5px 5px 0 0;
-  height: 90%;
 }
 
 .booking-form__title {

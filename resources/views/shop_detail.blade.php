@@ -20,52 +20,64 @@
   </div>
 
   <div class="w48p">
-    <div class="booking-form">
-      <h2 class="booking-form__title">予約</h2>
-      <input
-        type="date"
-        value="<?php echo date('Y-m-d'); ?>"
-        class="booking-form__input"
-        id="bookingDate">
-      <select
-        type="text"
-        class="booking-form__input w95p"
-        id="bookingTime">
-        @for ($i = 17; $i < 22; $i+=1)
-        <option value="{{ $i }}:00">{{ $i }}:00</option>
-        @endfor
-      </select>
-      <select
-        type="text"
-        class="booking-form__input w95p"
-        id="bookingNumber">
-        @for ($i = 1; $i < 10; $i+=1)
-        <option value="{{ $i }}">{{ $i }}人</option>
-        @endfor
-      </select>
+    @if(Auth::check())
+    <form action="/book" method="POST">
+      @csrf
+      <div class="booking-form">
+        <h2 class="booking-form__title">予約</h2>
+        <input
+          type="hidden"
+          value="{{$shop->id}}"
+          name="shop_id">
+        <input
+          type="date"
+          value="<?php echo date('Y-m-d'); ?>"
+          class="booking-form__input"
+          id="bookingDate"
+          name="date">
+        <select
+          type="time"
+          class="booking-form__input w95p"
+          id="bookingTime"
+          name="time">
+          @for ($i = 17; $i < 22; $i+=1)
+          <option value="{{ $i }}:00">{{ $i }}:00</option>
+          @endfor
+        </select>
+        <select
+          type="number"
+          class="booking-form__input w95p"
+          id="bookingNumber"
+          name="number">
+          @for ($i = 1; $i < 10; $i+=1)
+          <option value="{{ $i }}">{{ $i }}人</option>
+          @endfor
+        </select>
 
-      <div class="booking-confirmation__wrapper">
-        <table class="booking-confirmation">
-          <tr>
-            <th class="booking-cfm__item-title">Shop</th>
-            <td>{{$shop->name}}</td>
-          </tr>
-          <tr>
-            <th class="booking-cfm__item-title">Date</th>
-            <td id="cfmDate"></td>
-          </tr>
-          <tr>
-            <th class="booking-cfm__item-title">Time</th>
-            <td id="cfmTime"></td>
-          </tr>
-          <tr>
-            <th class="booking-cfm__item-title">Number</th>
-            <td id="cfmNumber"></td>
-          </tr>
-        </table>
+        <div class="booking-confirmation__wrapper">
+          <table class="booking-confirmation">
+            <tr>
+              <th class="booking-cfm__item-title">Shop</th>
+              <td>{{$shop->name}}</td>
+            </tr>
+            <tr>
+              <th class="booking-cfm__item-title">Date</th>
+              <td id="cfmDate"></td>
+            </tr>
+            <tr>
+              <th class="booking-cfm__item-title">Time</th>
+              <td id="cfmTime"></td>
+            </tr>
+            <tr>
+              <th class="booking-cfm__item-title">Number</th>
+              <td id="cfmNumber"></td>
+            </tr>
+          </table>
+        </div>
       </div>
-    </div>
-    <button class="booking-form__btn">予約する</button>
+      <button class="booking-form__btn">予約する</button>
   </div>
+  </form>
+  @endif
 </div>
 @endsection
