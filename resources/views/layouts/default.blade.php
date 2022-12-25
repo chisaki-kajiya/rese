@@ -8,7 +8,7 @@
   <script src="https://kit.fontawesome.com/b064dd4cf2.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="/css/reset.css">
   <link rel="stylesheet" href="/css/style.css">
-  <title>Rese|@yield('title')</title>
+  <title>Rese | @yield('title')</title>
 </head>
 
 <body>

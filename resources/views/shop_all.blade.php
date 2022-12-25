@@ -3,7 +3,6 @@
 @section('title', 'ショップ一覧')
 
 @section('header_right')
-
 <form action="/search" method="GET">
   @csrf
   <div class="search-box box">
@@ -33,7 +32,9 @@
       <i class="fa fa-search" aria-hidden="true"></i>
     </button>
 
-    <input type="text" value="Search ..." class="search-box__input" onfocus="if (this.value == 'Search ...') this.value = '';" onblur="if (this.value == '') this.value = 'Search ...';" value="Search ...">
+    <input type="text" name="name" value="Search ..." class="search-box__input" onfocus="if (this.value == 'Search ...')
+      this.value = '';" onblur="if (this.value == '')
+      this.value = 'Search ...';">
   </div>
 </form>
 @endsection
@@ -44,7 +45,7 @@
   <div class="shop-card">
 
     <div class="shop-card__top">
-      <img src="{{$shop->image_url}}" alt="" class="shop-card__image">
+      <img src="{{$shop->image_url}}" alt="img" class="shop-card__image">
     </div>
 
     <div class="shop-card__content">
@@ -55,7 +56,12 @@
       </div>
 
       <div class="spacebtw mt20">
-        <a href="" class="blue-btn h18">詳しくみる</a>
+        <form action="/detail">
+          @csrf
+          <input type="hidden" name="id" value="{{$shop->id}}">
+          <button class="blue-btn">詳しくみる</button>
+        </form>
+
         @if(Auth::check())
         @if($shop->likes->isEmpty()==1)
         <form action="/like" method="POST">

@@ -28,7 +28,16 @@ class ShopController extends Controller
         if (isset($request->genre_id)) {
             $shop->where('genre_id', "{$request->genre_id}");
         }
+        if (isset($request->name) && $request->name != "Search ...") {
+            $shop->where('name', 'LIKE', "%{$request->name}%");
+        }
         $shops = $shop->get();
         return view('shop_all', ['areas' => $areas, 'genres' => $genres, 'shops' => $shops]);
+    }
+
+    public function detail(Request $request)
+    {
+        $shop = Shop::find($request->id);
+        return view('shop_detail', ['shop' => $shop]);
     }
 }
