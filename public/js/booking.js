@@ -4,7 +4,7 @@ const bookingDate = document.getElementById('bookingDate');
 const cfmDate = document.getElementById('cfmDate');
 var date = new Date();
 
-cfmDate.innerText = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+cfmDate.innerText = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + (date.getDate() + 1);
 
 bookingDate.addEventListener('change', () => {
   cfmDate.innerText = bookingDate.value

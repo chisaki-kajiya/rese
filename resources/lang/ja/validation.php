@@ -120,6 +120,11 @@ return [
     'password' => 'パスワード',
     'name' => '名前',
     'email' => 'メールアドレス',
+    'date' => '日付',
+    'time' => '時間',
+    'number' => '人数',
+    'shop_id' => 'Shop ID',
+    'ID' => 'ID'
   ],
 
 ];

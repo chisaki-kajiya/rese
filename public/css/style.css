@@ -19,10 +19,14 @@ body {
   color: #ffffff;
   transition: .5s;
 }
-
 /* common colors, sizes, positions */
 .red {
   color: #ff0000;
+}
+
+.shadow {
+  box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, .5);
+  border-radius: 5px;
 }
 
 .h18 {
@@ -83,6 +87,10 @@ body {
 
 .mb50 {
   margin-bottom: 50px;
+}
+
+.mt10 {
+  margin-top: 10px;
 }
 
 .mt20 {
@@ -398,9 +406,9 @@ body {
 
 .booking-form {
   background-color: #305dff;
-  padding: 30px 30px 50px;
+  padding: 30px;
   box-sizing: border-box;
-  border-radius: 5px;
+  border-radius: 5px 5px 0 0;
 }
 
 .booking-form__title {
@@ -444,8 +452,14 @@ body {
   text-align: center;
   border-radius: 0 0 5px 5px;
   width: 100%;
-  padding: 30px;
+  padding: 20px 30px;
   font-size: 20px;
+}
+
+.booking-form__btn:hover {
+  background-color: #4464f4;
+  color: #ffffff;
+  transition: .5s;
 }
 
 /* mypage.blade.php */
@@ -459,12 +473,17 @@ body {
   margin-bottom: 20px;
 }
 
+.mypage-booking__error {
+  margin-bottom: 20px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 5px;
+}
+
 .mypage-booking-card {
   background-color: #305dff;
   padding: 30px;
-  border-radius: 5px;
-  box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, .5);
-  margin-bottom: 20px;
+  border-radius: 5px 5px 0 0;
 }
 
 .mypage-booking__icon {
@@ -494,4 +513,28 @@ body {
 
 .mypage-booking__content-head {
   padding: 20px 20px 0;
+  font-size: 16px;
+  height: 30px;
+}
+
+.mypage-booking__input {
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 5px;
+}
+
+.mypage-booking__change-btn {
+  background-color: #0538ff;
+  border-radius: 0 0 5px 5px;
+  border: none;
+  color: #ffffff;
+  width: 100%;
+  height: 50px;
+}
+
+.mypage-booking__change-btn:hover {
+  background-color: #4464f4;
+  color: #ffffff;
+  transition: .5s;
 }

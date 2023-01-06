@@ -10,44 +10,83 @@
   <div class="w40p">
     <h3 class="mypage__content-title">予約状況</h3>
 
-    @foreach($bookings as $booking)
-    <div class="mypage-booking-card">
+    @if (count($errors) > 0)
+    <div class="mypage-booking__error">
+      <h3 class="red">予約変更エラー</h3>
+      @foreach ($errors->all() as $error)
+      <p class="red mt10">{{$error}}</p>
+      @endforeach
+    </div>
+    @endif
 
-      <div class="spacebtw">
-        <div class="align-center">
-          <span class="mypage-booking__icon">
-            <i class="fa fa-clock-o" aria-hidden="true"></i>
-          </span>
-          <p class="mypage-booking__card-title">予約1</p>
+    @foreach($bookings as $booking)
+    <div class="shadow mb30">
+      <div class="mypage-booking-card">
+
+        <div class="spacebtw">
+          <div class="align-center">
+            <span class="mypage-booking__icon">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+            </span>
+            <p class="mypage-booking__card-title">予約{{ $loop->iteration }}</p>
+          </div>
+
+          <form action="/book/cancel/{{$booking->id}}" method="POST">
+            @csrf
+            <button class="mypage-booking__icon">
+              <i class="fa fa-times-circle-o" aria-hidden="true"></i>
+            </button>
+          </form>
         </div>
 
-        <form action="/book/cancel/{{$booking->id}}" method="POST">
+        <form action="/book/change" method="post" id="change">
           @csrf
-          <button class="mypage-booking__icon">
-            <i class="fa fa-times-circle-o" aria-hidden="true"></i>
-          </button>
+          <table class="mypage-booking__content">
+            <input type="hidden" value="{{$booking->id}}" name="id">
+            <tr>
+              <th class="mypage-booking__content-head">Shop</th>
+              <td>{{ $booking->getShop() }}</td>
+            </tr>
+            <tr>
+              <th class="mypage-booking__content-head">Date</th>
+              <td>
+                <input type="date" value="{{ $booking->getDate() }}" name="date" class="mypage-booking__input">
+              </td>
+            </tr>
+            <tr>
+              <th class="mypage-booking__content-head">Time</th>
+              <td>
+                <select type="time" name="time" class="mypage-booking__input">
+                  @for ($i = 17; $i < 22; $i+=1) <option value="{{ $i }}:00" <?php
+                                                                              if ($i == $booking->getTime()) {
+                                                                                echo "selected";
+                                                                              }
+                                                                              ?>>
+                    {{ $i }}:00
+                    </option>
+                    @endfor
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <th class="mypage-booking__content-head">Number</th>
+              <td>
+                <select type="number" name="number" class="mypage-booking__input">
+                  @for ($i = 1; $i < 10; $i+=1) <option value="{{ $i }}" <?php
+                                                                          if ($i == $booking->number) {
+                                                                            echo "selected";
+                                                                          }
+                                                                          ?>>
+                    {{ $i }}人
+                    </option>
+                    @endfor
+                </select>
+              </td>
+            </tr>
+          </table>
         </form>
       </div>
-
-      <table class="mypage-booking__content">
-        <tr>
-          <th class="mypage-booking__content-head">Shop</th>
-          <td>{{ $booking->getShop() }}</td>
-        </tr>
-        <tr>
-          <th class="mypage-booking__content-head">Date</th>
-          <td>{{ $booking->getDate() }}</td>
-        </tr>
-        <tr>
-          <th class="mypage-booking__content-head">Time</th>
-          <td>{{ $booking->getTime() }}</td>
-        </tr>
-        <tr>
-          <th class="mypage-booking__content-head">Number</th>
-          <td>{{ $booking->number }}人</td>
-        </tr>
-      </table>
-
+      <button class="mypage-booking__change-btn" form="change">変更する</button>
     </div>
     @endforeach
 
@@ -78,7 +117,7 @@
 
           <div class="spacebtw mt20">
 
-            <form action="/mypage/detail" method="GET">
+            <form action="/detail" method="GET">
               <input type="hidden" name="id" value="{{ $like->shop_id }}">
               <button class="blue-btn">詳しくみる</button>
             </form>

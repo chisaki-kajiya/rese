@@ -21,12 +21,20 @@
 
   <div class="w48p">
     @if(Auth::check())
+    @if (count($errors) > 0)
+    <div class="mypage-booking__error">
+      <h3 class="red">予約エラー</h3>
+      @foreach ($errors->all() as $error)
+      <p class="red mt10">{{$error}}</p>
+      @endforeach
+    </div>
+    @endif
     <form action="/book" method="POST">
       @csrf
       <div class="booking-form">
         <h2 class="booking-form__title">予約</h2>
         <input type="hidden" value="{{$shop->id}}" name="shop_id">
-        <input type="date" value="<?php echo date('Y-m-d'); ?>" class="booking-form__input" id="bookingDate" name="date">
+        <input type="date" value="<?php echo date('Y-m-d', strtotime('+1 day')); ?>" class="booking-form__input" id="bookingDate" name="date">
         <select type="time" class="booking-form__input w95p" id="bookingTime" name="time">
           @for ($i = 17; $i < 22; $i+=1) <option value="{{ $i }}:00">{{ $i }}:00</option>
             @endfor
