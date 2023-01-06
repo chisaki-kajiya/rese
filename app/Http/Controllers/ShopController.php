@@ -40,4 +40,10 @@ class ShopController extends Controller
         $shop = Shop::find($request->id);
         return view('shop_detail', ['shop' => $shop]);
     }
+
+    public function content(Request $request)
+    {
+        $shop = Shop::find($request->id);
+        return view('shop_detail', ['shop' => $shop]);
+    }
 }

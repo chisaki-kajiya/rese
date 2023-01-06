@@ -16,4 +16,11 @@ class BookingController extends Controller
         Booking::create($booking);
         return view('done');
     }
+
+    public function cancel(Request $request
+)
+    {
+        Booking::find($request->id)->delete();
+        return redirect('/mypage');
+    }
 }

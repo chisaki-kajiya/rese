@@ -4,9 +4,9 @@
 
 @section('header_right')
 <form action="/search" method="GET">
-  @csrf
   <div class="search-box box">
-    <select class="search-box__select" name="area_id">
+
+    <select class="search-box__select" name="area_id" id="searchArea">
       <option value="">All area</option>
       @foreach($areas as $area)
       <option value="{{ $area->id }}">
@@ -17,7 +17,7 @@
 
     <span class="gray-bar"></span>
 
-    <select class="search-box__select" name="genre_id">
+    <select class="search-box__select" name="genre_id" id="searchGenre">
       <option value="">All genre</option>
       @foreach($genres as $genre)
       <option value="{{ $genre->id }}">
@@ -42,7 +42,7 @@
 @section('content')
 <div class="shop-card-wrapper">
   @foreach($shops as $shop)
-  <div class="shop-card">
+  <div class="shop-card w22p">
 
     <div class="shop-card__top">
       <img src="{{$shop->image_url}}" alt="img" class="shop-card__image">
@@ -57,7 +57,6 @@
 
       <div class="spacebtw mt20">
         <form action="/detail">
-          @csrf
           <input type="hidden" name="id" value="{{$shop->id}}">
           <button class="blue-btn">詳しくみる</button>
         </form>
@@ -82,4 +81,8 @@
   </div>
   @endforeach
 </div>
+@endsection
+
+@section('js')
+<script src="/js/search.js"></script>
 @endsection

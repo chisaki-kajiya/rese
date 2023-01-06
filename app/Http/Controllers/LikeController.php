@@ -22,4 +22,10 @@ class LikeController extends Controller
         Like::where('shop_id', $request->shop_id)->first()->delete();
         return redirect('/');
     }
+
+    public function remove(Request $request)
+    {
+        Like::where('shop_id', $request->shop_id)->first()->delete();
+        return redirect('/mypage');
+    }
 }

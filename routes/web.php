@@ -20,12 +20,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [ShopController::class, 'index']);
 Route::get('/search', [ShopController::class, 'search']);
 Route::get('/detail', [ShopController::class, 'detail']);
+Route::get('/mypage/detail', [ShopController::class, 'content']);
 
 Route::post('/like', [LikeController::class, 'create']);
 Route::post('/unlike', [LikeController::class, 'delete']);
+Route::post('/mypage/unlike', [LikeController::class, 'remove']);
 
 Route::get('/mypage', [HomeController::class, 'index']);
 
 Route::post('/book', [BookingController::class, 'create']);
+Route::post('/book/cancel/{id}', [BookingController::class, 'cancel']);
 
 require __DIR__.'/auth.php';

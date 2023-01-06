@@ -24,10 +24,10 @@
             @csrf
             <li><button class="drawer-menu__item">Logout</button></li>
           </form>
-            <li><a href="/mypage" class="drawer-menu__item">Mypage</a></li>
+          <li><a href="/mypage" class="drawer-menu__item">Mypage</a></li>
           @else
-            <li><a href="/register" class="drawer-menu__item">Registration</a></li>
-            <li><a href="/login" class="drawer-menu__item">Login</a></li>
+          <li><a href="/register" class="drawer-menu__item">Registration</a></li>
+          <li><a href="/login" class="drawer-menu__item">Login</a></li>
           @endif
         </ul>
       </nav>
@@ -49,8 +49,8 @@
   <main>
     @yield('content')
   </main>
-
-  <script src="/js/main.js"></script>
+    <script src="/js/main.js"></script>
+    @yield('js')
 </body>
 
 </html>
