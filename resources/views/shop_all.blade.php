@@ -42,7 +42,7 @@
 @section('content')
 <div class="shop-card-wrapper">
   @foreach($shops as $shop)
-  <div class="shop-card w22p">
+  <div class="shop-card w22p w100p768">
 
     <div class="shop-card__top">
       <img src="{{$shop->image_url}}" alt="img" class="shop-card__image">

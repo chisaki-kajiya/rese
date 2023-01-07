@@ -31,5 +31,4 @@ Route::post('/book', [BookingController::class, 'create']);
 Route::post('/book/cancel/{id}', [BookingController::class, 'cancel']);
 Route::post('/book/change', [BookingController::class, 'change']);
 
-
 require __DIR__.'/auth.php';

@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="detail__wrapper">
-  <div class="w48p">
+  <div class="w48p w100p768">
     <div class="flex">
       <a href="#" class="detail__back-btn" onclick="history.back()">
         <i class="fa fa-angle-left" aria-hidden="true"></i>
@@ -16,10 +16,10 @@
 
     <p class="mb30">#{{$shop->getArea()}} #{{$shop->getGenre()}}</p>
 
-    <p>#{{$shop->outline}}</p>
+    <p class="mb30_768">#{{$shop->outline}}</p>
   </div>
 
-  <div class="w48p">
+  <div class="w48p w100p768">
     @if(Auth::check())
     @if (count($errors) > 0)
     <div class="mypage-booking__error">

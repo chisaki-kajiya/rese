@@ -6,8 +6,8 @@
 <h2 class="mypage__top">
   {{ $user->name }}さん
 </h2>
-<div class="spacebtw prpl200">
-  <div class="w40p">
+<div class="mypage__content-wrapper">
+  <div class="w40p w100p768 mb30_768">
     <h3 class="mypage__content-title">予約状況</h3>
 
     @if (count($errors) > 0)
@@ -92,13 +92,13 @@
 
   </div>
 
-  <div class="w55p">
+  <div class="w55p w100p768">
     <h3 class="mypage__content-title">お気に入り店舗</h3>
 
     <div class="mypage-booking__card-wrapper">
 
       @foreach($likes as $like)
-      <div class="shop-card w45p">
+      <div class="shop-card w45p w100p768">
 
         <div class="shop-card__top">
           <img src="{{ $like->getImage() }}" alt="img" class="shop-card__image">
