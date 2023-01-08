@@ -21,7 +21,6 @@
                     name="name"
                     :value="old('name')"
                     required
-                    autofocus
                     onfocus="if (this.value == 'Username') 
                         this.value = '';" 
                     onblur="if (this.value == '') 

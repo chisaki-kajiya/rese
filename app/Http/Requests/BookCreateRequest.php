@@ -34,7 +34,7 @@ class BookCreateRequest extends FormRequest
     public function messages()
     {
         return [
-            'date.after' => '予約日には本日以降の日付を指定してください。',
+            'date.after' => '予約日には明日以降の日付を指定してください。',
             'date.date_format' => '予約時間は0000-00-00の形式で指定してください。',
             'time.date_format' => '予約時間は00:00の形式で指定してください。',
         ];

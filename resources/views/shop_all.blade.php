@@ -60,20 +60,17 @@
           <input type="hidden" name="id" value="{{$shop->id}}">
           <button class="blue-btn">詳しくみる</button>
         </form>
-
-        @if(Auth::check())
-        @if($shop->likes->isEmpty()==1)
-        <form action="/like" method="POST">
-          @csrf
-          <button class="shop-card__like" name="shop_id" value="{{$shop->id}}">❤︎</button>
-        </form>
-
-        @else
+        @if(Auth::check() && $shop->getLike()==false )
         <form action="/unlike" method="POST">
           @csrf
           <button class="shop-card__like--red" name="shop_id" value="{{$shop->id}}">❤︎</button>
         </form>
-        @endif
+        @elseif(Auth::check())
+        <form action="/like" method="POST">
+          @csrf
+          <button class="shop-card__like" name="shop_id" value="{{$shop->id}}">❤︎</button>
+        </form>
+        @else
         @endif
       </div>
 

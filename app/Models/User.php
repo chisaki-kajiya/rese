@@ -21,6 +21,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'name',
         'email',
         'password',
+        'role',
     ];
 
     /**
@@ -52,4 +53,8 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany('App\Models\Like');
     }
 
+    public function Representatives()
+    {
+        return $this->hasOne('App\Models\Representative');
+    }
 }

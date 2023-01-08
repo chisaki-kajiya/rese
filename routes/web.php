@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LikeController;
@@ -30,5 +31,8 @@ Route::get('/mypage', [HomeController::class, 'index']);
 Route::post('/book', [BookingController::class, 'create']);
 Route::post('/book/cancel/{id}', [BookingController::class, 'cancel']);
 Route::post('/book/change', [BookingController::class, 'change']);
+
+Route::get('/admin', [AdminController::class, 'index']);
+Route::post('/admin/register', [AdminController::class, 'create']);
 
 require __DIR__.'/auth.php';

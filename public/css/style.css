@@ -514,9 +514,8 @@ body {
   border-radius: 5px;
   display: block;
   margin-bottom: 20px;
-  padding: 0;
   border: none;
-  padding-left: 5px;
+  padding: 0 0 0 5px;
 }
 
 .booking-confirmation__wrapper {
@@ -649,4 +648,51 @@ body {
   background-color: #4464f4;
   color: #ffffff;
   transition: .5s;
+}
+
+/* layouts.admin */
+.admin__header-text {
+  color: #305dff;
+  font-size: 32px;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+}
+
+.admin__header-text--border {
+  font-size: 20px;
+  border: #305dff 1px solid;
+  font-weight: normal;
+  border-radius: 5px;
+  padding: 5px;
+  margin-left: 10px;
+}
+
+/* admin.blade.php */
+.admin__content-title {
+  margin: 30px 150px 10px;
+  font-size: 20px;
+}
+
+.admin__table {
+  margin: 0 150px;
+  border-collapse: separate;
+  border-spacing: 10px 10px;
+}
+
+.admin__table-head {
+  text-align: left;
+  font-weight: normal;
+}
+
+.admin__register-btn {
+  margin: 0 150px;
+}
+
+.admin__error {
+  margin: 0 150px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 5px;
+  display: inline-block;
 }

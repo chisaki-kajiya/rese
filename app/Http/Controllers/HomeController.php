@@ -14,11 +14,8 @@ class HomeController extends Controller
     {
         $user = Auth::user();
         $id = Auth::id();
-        $booking = Booking::query();
-        $bookings = $booking->where('user_id', $id)->get();
-
-        $like = Like::query();
-        $likes = $like->where('user_id', $id)->get();
+        $bookings = Booking::all()->where('user_id', $id);
+        $likes = Like::all()->where('user_id', $id);
 
         return view('mypage', ['user' => $user, 'bookings' => $bookings, 'likes' => $likes]);
     }
