@@ -1,6 +1,10 @@
-@extends('layouts.admin')
+@extends('layouts.default')
 
 @section('title', '管理人ページ')
+
+@section('header_right')
+<p class="admin__header-right">管理人ページ</p>
+@endsection
 
 @section('content')
 <div>
@@ -16,7 +20,7 @@
   @endif
 
   <form action="/admin/register" method="POST">
-  @csrf
+    @csrf
     <table class="admin__table">
       <tr>
         <th class="admin__table-head">名前</th>

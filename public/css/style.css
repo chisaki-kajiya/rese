@@ -650,25 +650,17 @@ body {
   transition: .5s;
 }
 
-/* layouts.admin */
-.admin__header-text {
+/* admin.blade.php */
+.admin__header-right {
   color: #305dff;
-  font-size: 32px;
-  font-weight: bold;
-  display: inline-flex;
-  align-items: center;
-}
-
-.admin__header-text--border {
+  text-decoration: none;
   font-size: 20px;
   border: #305dff 1px solid;
   font-weight: normal;
   border-radius: 5px;
-  padding: 5px;
-  margin-left: 10px;
+  padding: 9px;
 }
 
-/* admin.blade.php */
 .admin__content-title {
   margin: 30px 150px 10px;
   font-size: 20px;
@@ -686,7 +678,7 @@ body {
 }
 
 .admin__register-btn {
-  margin: 0 150px;
+  margin-left: 400px;
 }
 
 .admin__error {
