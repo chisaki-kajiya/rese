@@ -19,6 +19,12 @@
     </div>
     @endif
 
+    @if (session('flash_message'))
+    <div class="flash_message">
+      {{ session('flash_message') }}
+    </div>
+    @endif
+
     @foreach($bookings as $booking)
     <div class="shadow mb30">
       <div class="mypage-booking-card">

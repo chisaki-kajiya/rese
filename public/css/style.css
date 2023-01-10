@@ -616,6 +616,14 @@ body {
   transition: .5s;
 }
 
+.flash_message {
+    margin-bottom: 20px;
+    background-color: #F0FFF0;
+    padding: 20px;
+    border-radius: 5px;
+    color: #3CB371;
+}
+
 /* admin.blade.php */
 .admin__header-right {
   color: #305dff;

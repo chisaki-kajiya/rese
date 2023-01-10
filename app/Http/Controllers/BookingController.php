@@ -35,6 +35,6 @@ class BookingController extends Controller
         unset($booking['date']);
         unset($booking['time']);
         Booking::where('id', $request->id)->update($booking);
-        return redirect('/mypage');
+        return redirect('/mypage')->with('flash_message', '予約を変更しました');
     }
 }
