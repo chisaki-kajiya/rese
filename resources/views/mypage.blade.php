@@ -37,8 +37,9 @@
             <p class="mypage-booking__card-title">予約{{ $loop->iteration }}</p>
           </div>
 
-          <form action="/book/cancel/{{$booking->id}}" method="POST">
+          <form action="/book/cancel" method="POST">
             @csrf
+            <input type="hidden" name="id" value="{{ $booking->id }}">
             <button class="mypage-booking__icon">
               <i class="fa fa-times-circle-o" aria-hidden="true"></i>
             </button>
