@@ -42,7 +42,7 @@
 @section('content')
 <div class="shop-card-wrapper">
   @foreach($shops as $shop)
-  <div class="shop-card w22p w100p768">
+  <div class="shop-card w22p w100p768 w45p1042">
 
     <div class="shop-card__top">
       <img src="{{$shop->image_url}}" alt="img" class="shop-card__image">
@@ -50,10 +50,7 @@
 
     <div class="shop-card__content">
       <h2 class="shop-card__name">{{$shop->name}}</h2>
-      <div class="flex">
-        <p class="shop-card__tag--area">#{{$shop->getArea()}}</p>
-        <p>#{{$shop->getGenre()}}</p>
-      </div>
+      <p class="shop-card__tag--area">#{{$shop->getArea()}} #{{$shop->getGenre()}}</p>
 
       <div class="spacebtw mt20">
         <form action="/detail">

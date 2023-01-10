@@ -43,6 +43,16 @@ class RegisteredUserController extends Controller
 
         event(new Registered($user));
 
-        return view('thanks');
+        $user_info = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
+
+        if (Auth::attempt($user_info)) {
+            $request->session()->regenerate();
+        }
+
+        return view('confirmed');
+        
     }
 }

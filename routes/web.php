@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [ShopController::class, 'index']);
+// {area_id}/{genre_id}/{}
 Route::get('/search', [ShopController::class, 'search']);
 Route::get('/detail', [ShopController::class, 'detail']);
 
@@ -30,6 +31,7 @@ Route::post('/mypage/unlike', [LikeController::class, 'remove']);
 Route::get('/mypage', [HomeController::class, 'index']);
 
 Route::post('/book', [BookingController::class, 'create']);
+// {id}いらない
 Route::post('/book/cancel/{id}', [BookingController::class, 'cancel']);
 Route::post('/book/change', [BookingController::class, 'change']);
 

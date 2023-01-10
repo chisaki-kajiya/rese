@@ -98,7 +98,7 @@
     <div class="mypage-booking__card-wrapper">
 
       @foreach($likes as $like)
-      <div class="shop-card w45p w100p768">
+      <div class="shop-card w45p w100p1042">
 
         <div class="shop-card__top">
           <img src="{{ $like->getImage() }}" alt="img" class="shop-card__image">

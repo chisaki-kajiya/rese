@@ -32,12 +32,11 @@ use Illuminate\Support\Facades\Route;
     Route::post('reset-password', [NewPasswordController::class, 'store'])
                 ->name('password.update');
 
-Route::middleware('auth')->group(function () {
     Route::get('verify-email', [EmailVerificationPromptController::class, '__invoke'])
                 ->name('verification.notice');
 
     Route::get('verify-email/{id}/{hash}', [VerifyEmailController::class, '__invoke'])
-                ->middleware(['signed', 'throttle:6,1'])
+                ->middleware(['throttle:6,1', 'auth','signed'])
                 ->name('verification.verify');
 
     Route::post('email/verification-notification', [EmailVerificationNotificationController::class, 'store'])
@@ -51,4 +50,4 @@ Route::middleware('auth')->group(function () {
 
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
                 ->name('logout');
-});
+
