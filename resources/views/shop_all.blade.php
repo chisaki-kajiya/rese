@@ -5,11 +5,10 @@
 @section('header_right')
 <form action="/search" method="GET">
   <div class="search-box box">
-
     <select class="search-box__select" name="area_id" id="searchArea">
       <option value="">All area</option>
       @foreach($areas as $area)
-      <option value="{{ $area->id }}">
+      <option value="{{ $area->id }}" data-area-id="{{ $area->id }}">
         {{$area->name}}
       </option>
       @endforeach

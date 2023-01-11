@@ -11,7 +11,7 @@
     <h3 class="mypage__content-title">予約状況</h3>
 
     @if (count($errors) > 0)
-    <div class="mypage-booking__error">
+    <div class="booking-error">
       <h3 class="red">予約変更エラー</h3>
       @foreach ($errors->all() as $error)
       <p class="red mt10">{{$error}}</p>
@@ -23,6 +23,10 @@
     <div class="flash_message">
       {{ session('flash_message') }}
     </div>
+    @endif
+
+    @if ($user->email_verified_at == null)
+    <p class="auth-request-text">RESEからのメールを確認すると、レストランの予約ができるようになります</p>
     @endif
 
     @foreach($bookings as $booking)
@@ -50,48 +54,50 @@
           @csrf
           <table class="mypage-booking__content">
             <input type="hidden" value="{{$booking->id}}" name="id">
+
             <tr>
               <th class="mypage-booking__content-head">Shop</th>
               <td>{{ $booking->getShop() }}</td>
             </tr>
+
             <tr>
               <th class="mypage-booking__content-head">Date</th>
               <td>
                 <input type="date" value="{{ $booking->getDate() }}" name="date" class="mypage-booking__input">
               </td>
             </tr>
+
             <tr>
               <th class="mypage-booking__content-head">Time</th>
               <td>
                 <select type="time" name="time" class="mypage-booking__input">
-                  @for ($i = 17; $i < 22; $i+=1) <option value="{{ $i }}:00" <?php
-                                                                              if ($i == $booking->getTime()) {
+                  @for ($i = 17; $i < 22; $i+=1) <option value="{{ $i }}:00" <?php if ($i == $booking->getTime()) {
                                                                                 echo "selected";
-                                                                              }
-                                                                              ?>>
+                                                                              } ?>>
                     {{ $i }}:00
                     </option>
                     @endfor
                 </select>
               </td>
             </tr>
+
             <tr>
               <th class="mypage-booking__content-head">Number</th>
               <td>
                 <select type="number" name="number" class="mypage-booking__input">
-                  @for ($i = 1; $i < 10; $i+=1) <option value="{{ $i }}" <?php
-                                                                          if ($i == $booking->number) {
+                  @for ($i = 1; $i < 10; $i+=1) <option value="{{ $i }}" <?php if ($i == $booking->number) {
                                                                             echo "selected";
-                                                                          }
-                                                                          ?>>
+                                                                          } ?>>
                     {{ $i }}人
                     </option>
                     @endfor
                 </select>
               </td>
             </tr>
+
           </table>
         </form>
+
       </div>
       <button class="mypage-booking__change-btn" form="change">変更する</button>
     </div>
@@ -103,6 +109,10 @@
     <h3 class="mypage__content-title">お気に入り店舗</h3>
 
     <div class="mypage-booking__card-wrapper">
+
+      @if( $likes->isEmpty() )
+      <p class="auth-request-text">お気に入りレストランがありません</p>
+      @endif
 
       @foreach($likes as $like)
       <div class="shop-card w45p w100p1042">

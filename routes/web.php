@@ -20,7 +20,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [ShopController::class, 'index']);
-// {area_id}/{genre_id}/{}
 Route::get('/search', [ShopController::class, 'search']);
 Route::get('/detail', [ShopController::class, 'detail']);
 

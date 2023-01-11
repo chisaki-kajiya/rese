@@ -20,6 +20,22 @@ body {
   transition: .5s;
 }
 
+.auth-request-text {
+  margin-bottom: 20px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 5px;
+  color: #696969
+}
+
+.booking-error {
+  margin-bottom: 20px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 5px;
+  color: #ff0000;
+}
+
 .shop-card {
   border-radius: 5px;
   padding-bottom: 15px;
@@ -364,6 +380,10 @@ body {
   margin: 50px 20px;
 }
 
+.box__contents-text--btm{
+  margin: 0 20px 50px;
+}
+
 /* shop_all.blade.php */
 .search-box {
   background-color: #ffffff;
@@ -548,12 +568,7 @@ body {
   margin-bottom: 20px;
 }
 
-.mypage-booking__error {
-  margin-bottom: 20px;
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 5px;
-}
+
 
 .mypage-booking-card {
   background-color: #305dff;
@@ -617,11 +632,11 @@ body {
 }
 
 .flash_message {
-    margin-bottom: 20px;
-    background-color: #F0FFF0;
-    padding: 20px;
-    border-radius: 5px;
-    color: #3CB371;
+  margin-bottom: 20px;
+  background-color: #F0FFF0;
+  padding: 20px;
+  border-radius: 5px;
+  color: #3CB371;
 }
 
 /* admin.blade.php */

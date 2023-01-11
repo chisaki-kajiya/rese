@@ -20,15 +20,16 @@
   </div>
 
   <div class="w48p w100p768">
-    @if(Auth::check())
     @if (count($errors) > 0)
-    <div class="mypage-booking__error">
+    <div class="booking-error">
       <h3 class="red">予約エラー</h3>
       @foreach ($errors->all() as $error)
       <p class="red mt10">{{$error}}</p>
       @endforeach
     </div>
     @endif
+
+    @if(Auth::check() && empty($user->email_verified_at) == false)
     <form action="/book" method="POST">
       @csrf
       <div class="booking-form">
@@ -66,9 +67,14 @@
         </div>
       </div>
       <button class="booking-form__btn">予約する</button>
+    </form>
+    @elseif(Auth::check())
+    <p class="auth-request-text">RESEからのメールを確認すると、レストランの予約ができるようになります</p>
+    @else
+    <p class="auth-request-text">ログインすると、レストランの予約ができるようになります</p>
+    @endif
+
   </div>
-  </form>
-  @endif
 </div>
 @endsection
 

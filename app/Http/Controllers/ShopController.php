@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 
 class ShopController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
         $areas = Area::all();
         $genres = Genre::all();
@@ -24,9 +24,7 @@ class ShopController extends Controller
         $areas = Area::all();
         $genres = Genre::all();
         $shop = Shop::query();
-        if (isset($request->area_id)) {
-            $shop->where('area_id', "{$request->area_id}");
-        }
+        $shop->where('area_id', "{$request->area_id}");
         if (isset($request->genre_id)) {
             $shop->where('genre_id', "{$request->genre_id}");
         }
@@ -34,12 +32,19 @@ class ShopController extends Controller
             $shop->where('name', 'LIKE', "%{$request->name}%");
         }
         $shops = $shop->get();
-        return view('shop_all', ['areas' => $areas, 'genres' => $genres, 'shops' => $shops]);
+        return response()->json([
+            'shops' => $shops
+        ]);
+        // return view('shop_all', ['areas' => $areas, 'genres' => $genres, 'shops' => $shops]);
     }
 
     public function detail(Request $request)
     {
         $shop = Shop::find($request->id);
-        return view('shop_detail', ['shop' => $shop]);
+        $user['email_verified_at'] = '';
+        if (Auth::check()) {
+            $user = Auth::user();
+        }
+        return view('shop_detail', ['shop' => $shop, 'user' => $user]);
     }
 }
