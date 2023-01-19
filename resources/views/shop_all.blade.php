@@ -5,19 +5,24 @@
 @section('header_right')
 {{ Form::open(['url' => '/search', 'method' => 'GET']) }}
 <div class="search-box box">
-  {{ Form::select('area_id', $areas, $area ?? null, ['class'=>'search-box__select', 'placeholder'=>'All area', 'id'=>'searchArea']) }}
+  <div class="search-box__row">
+    {{ Form::select('area_id', $areas, $area ?? null, ['class'=>'search-box__select', 'placeholder'=>'All area', 'id'=>'searchArea']) }}
 
-  <span class="gray-bar"></span>
+    <span class="gray-bar--left"></span>
 
-  {{ Form::select('genre_id', $genres, $genre ?? null, ['class'=>'search-box__select', 'placeholder'=>'All genre', 'id'=>'searchGenre']) }}
+    {{ Form::select('genre_id', $genres, $genre ?? null, ['class'=>'search-box__select', 'placeholder'=>'All genre', 'id'=>'searchGenre']) }}
 
-  <span class="gray-bar"></span>
+    <span class="gray-bar--right"></span>
+  </div>
 
-  <i class="fa fa-search search-box__search-icon" aria-hidden="true"></i>
+  <div class="search-box__row">
+    <i class="fa fa-search search-box__search-icon" aria-hidden="true"></i>
 
-  {{ Form::text('name', 'Search ...', ['class'=>'search-box__input', 'onfocus' => 'this.value = "";'])}}
+    {{ Form::text('name', 'Search ...', ['class'=>'search-box__input', 'onfocus' => 'this.value = "";'])}}
 
-  {{ Form::submit('検索')}}
+    {{ Form::submit('検索', ['class' => 'blue-btn shop-search-btn '])}}
+  </div>
+
 </div>
 {{ Form::close() }}
 @endsection
