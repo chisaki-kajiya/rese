@@ -7,7 +7,7 @@
   {{ $user->name }}さん
 </h2>
 <div class="mypage__content-wrapper">
-  <div class="w40p w100p768 mb30_768">
+  <div class="w40p mb30_1150 w45p1150 w100p768">
     <h3 class="mypage__content-title">予約状況</h3>
 
     @if (count($errors) > 0)
@@ -27,11 +27,14 @@
 
     @if ($user->email_verified_at == null)
     <p class="auth-request-text">RESEからのメールを確認すると、レストランの予約ができるようになります</p>
-    @endif
 
+    @elseif( $bookings->isEmpty() )
+    <p class="auth-request-text">予約がまだありません</p>
+
+    @else
     @foreach($bookings as $booking)
-    <div class="shadow mb30">
-      <div class="mypage-booking-card">
+    <div class="mypage-booking-card">
+      <div class="mypage-booking__card-top">
 
         <div class="spacebtw">
           <div class="align-center">
@@ -102,20 +105,21 @@
       <button class="mypage-booking__change-btn" form="change">変更する</button>
     </div>
     @endforeach
+    @endif
 
   </div>
 
-  <div class="w55p w100p768">
+  <div class="w55p w100p1150">
     <h3 class="mypage__content-title">お気に入り店舗</h3>
 
     <div class="mypage-booking__card-wrapper">
 
       @if( $likes->isEmpty() )
-      <p class="auth-request-text">お気に入りレストランがありません</p>
+      <p class="auth-request-text">お気に入りレストランがまだありません</p>
       @endif
 
       @foreach($likes as $like)
-      <div class="shop-card w45p w100p1042">
+      <div class="shop-card w45p w100p768">
 
         <div class="shop-card__top">
           <img src="{{ $like->getImage() }}" alt="img" class="shop-card__image">

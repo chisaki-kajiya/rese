@@ -71,7 +71,7 @@
     @elseif(Auth::check())
     <p class="auth-request-text">RESEからのメールを確認すると、レストランの予約ができるようになります</p>
     @else
-    <p class="auth-request-text">ログインすると、レストランの予約ができるようになります</p>
+    <p class="auth-request-text">ログインするとレストランの予約ができるようになります</p>
     @endif
 
   </div>

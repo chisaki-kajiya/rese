@@ -57,4 +57,41 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasOne('App\Models\Representative');
     }
+
+    public function getShopArea()
+    {
+        $shop_id = optional($this->representatives)->shop_id;
+        $shop = Shop::all()->where('id', $shop_id)->first();
+        $area = Area::all()->where('id', $shop->area_id)->first();
+        return $area->name;
+    }
+
+    public function getShopGenre()
+    {
+        $shop_id = optional($this->representatives)->shop_id;
+        $shop = Shop::all()->where('id', $shop_id)->first();
+        $genre = Genre::all()->where('id', $shop->genre_id)->first();
+        return $genre->name;
+    }
+
+    public function getShopImage()
+    {
+        $shop_id = optional($this->representatives)->shop_id;
+        $shop = Shop::all()->where('id', $shop_id)->first();
+        return $shop->image_url;
+    }
+
+    public function getShopName()
+    {
+        $shop_id = optional($this->representatives)->shop_id;
+        $shop = Shop::all()->where('id', $shop_id)->first();
+        return $shop->name;
+    }
+
+    public function getShopOutline()
+    {
+        $shop_id = optional($this->representatives)->shop_id;
+        $shop = Shop::all()->where('id', $shop_id)->first();
+        return $shop->outline;
+    }
 }

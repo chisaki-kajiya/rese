@@ -12,24 +12,9 @@ class Shop extends Model
 
     protected $guarded = array('id');
 
-    public function getArea()
-    {
-        return optional($this->area)->name;
-    }
-
     public function area()
     {
         return $this->belongsTo('App\Models\Area');
-    }
-
-    public function getGenre()
-    {
-        return optional($this->genre)->name;
-    }
-
-    public function genre()
-    {
-        return $this->belongsTo('App\Models\Genre');
     }
 
     public function bookings()
@@ -37,19 +22,34 @@ class Shop extends Model
         return $this->hasMany('App\Models\Booking');
     }
 
+    public function genre()
+    {
+        return $this->belongsTo('App\Models\Genre');
+    }
+
     public function likes()
     {
         return $this->hasMany('App\Models\Like');
     }
-    
+
+    public function representatives()
+    {
+        return $this->hasMany('App\Models\Representative');
+    }
+
+    public function getArea()
+    {
+        return optional($this->area)->name;
+    }
+
+    public function getGenre()
+    {
+        return optional($this->genre)->name;
+    }
+
     public function getLike()
     {
         $likes = Like::all()->where('user_id', Auth::id())->where('shop_id', $this->id);
         return $likes->isEmpty();
-    }
-
-    public function Representatives()
-    {
-        return $this->hasMany('App\Models\Representative');
     }
 }

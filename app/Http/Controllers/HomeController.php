@@ -16,7 +16,6 @@ class HomeController extends Controller
         $id = Auth::id();
         $bookings = Booking::all()->where('user_id', $id);
         $likes = Like::all()->where('user_id', $id);
-
         return view('mypage', ['user' => $user, 'bookings' => $bookings, 'likes' => $likes]);
     }
 }

@@ -23,16 +23,6 @@ class Like extends Model
         return $this->belongsTo('App\Models\Shop');
     }
 
-    public function getImage()
-    {
-        return optional($this->shop)->image_url;
-    }
-
-    public function getShop()
-    {
-        return optional($this->shop)->name;
-    }
-
     public function getArea()
     {
         $area_id = optional($this->shop)->area_id;
@@ -45,5 +35,15 @@ class Like extends Model
         $genre_id = optional($this->shop)->genre_id;
         $genre = Genre::where('id', $genre_id)->first();
         return $genre->name;
+    }
+
+    public function getImage()
+    {
+        return optional($this->shop)->image_url;
+    }
+
+    public function getShop()
+    {
+        return optional($this->shop)->name;
     }
 }
