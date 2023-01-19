@@ -26,10 +26,10 @@
     @endif
 
     @if ($user->email_verified_at == null)
-    <p class="auth-request-text">RESEからのメールを確認すると、レストランの予約ができるようになります</p>
+    <p class="request-text">RESEからのメールを確認すると、レストランの予約ができるようになります</p>
 
     @elseif( $bookings->isEmpty() )
-    <p class="auth-request-text">予約がまだありません</p>
+    <p class="request-text">予約がまだありません</p>
 
     @else
     @foreach($bookings as $booking)
@@ -115,8 +115,8 @@
     <div class="mypage-booking__card-wrapper">
 
       @if( $likes->isEmpty() )
-      <p class="auth-request-text">お気に入りレストランがまだありません</p>
-      @endif
+      <p class="request-text">お気に入りレストランがまだありません</p>
+      @else
 
       @foreach($likes as $like)
       <div class="shop-card w45p w100p768">
@@ -153,6 +153,8 @@
         </div>
       </div>
       @endforeach
+
+      @endif
 
     </div>
   </div>

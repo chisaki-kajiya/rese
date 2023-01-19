@@ -13,18 +13,28 @@ class ShopController extends Controller
 {
     public function index()
     {
-        $areas = Area::all();
-        $genres = Genre::all();
+        $areas = Area::all()->pluck('name', 'id');
+        $genres = Genre::all()->pluck('name', 'id');
         $shops = Shop::all();
-        return view('shop_all', ['areas' => $areas, 'genres' => $genres, 'shops' => $shops]);
+
+        return view('shop_all', [
+            'areas' => $areas,
+            'genres' => $genres,
+            'shops' => $shops
+        ]);
     }
 
     public function search(Request $request)
     {
-        $areas = Area::all();
-        $genres = Genre::all();
+        $area = $request->area_id;
+        $genre = $request->genre_id;
+        $areas = Area::all()->pluck('name', 'id');
+        $genres = Genre::all()->pluck('name', 'id');
+
         $shop = Shop::query();
-        $shop->where('area_id', "{$request->area_id}");
+        if (isset($request->area_id)) {
+            $shop->where('area_id', "{$request->area_id}");
+        }
         if (isset($request->genre_id)) {
             $shop->where('genre_id', "{$request->genre_id}");
         }
@@ -32,10 +42,14 @@ class ShopController extends Controller
             $shop->where('name', 'LIKE', "%{$request->name}%");
         }
         $shops = $shop->get();
-        return response()->json([
+
+        return view('shop_all', [
+            'area' => $area,
+            'areas' => $areas,
+            'genre' => $genre,
+            'genres' => $genres,
             'shops' => $shops
         ]);
-        // return view('shop_all', ['areas' => $areas, 'genres' => $genres, 'shops' => $shops]);
     }
 
     public function detail(Request $request)
@@ -45,6 +59,9 @@ class ShopController extends Controller
         if (Auth::check()) {
             $user = Auth::user();
         }
-        return view('shop_detail', ['shop' => $shop, 'user' => $user]);
+        return view('shop_detail', [
+            'shop' => $shop,
+            'user' => $user
+        ]);
     }
 }

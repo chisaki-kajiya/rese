@@ -3,43 +3,32 @@
 @section('title', 'ショップ一覧')
 
 @section('header_right')
-<form action="/search" method="GET">
-  <div class="search-box box">
-    <select class="search-box__select" name="area_id" id="searchArea">
-      <option value="">All area</option>
-      @foreach($areas as $area)
-      <option value="{{ $area->id }}" data-area-id="{{ $area->id }}">
-        {{$area->name}}
-      </option>
-      @endforeach
-    </select>
+{{ Form::open(['url' => '/search', 'method' => 'GET']) }}
+<div class="search-box box">
+  {{ Form::select('area_id', $areas, $area ?? null, ['class'=>'search-box__select', 'placeholder'=>'All area', 'id'=>'searchArea']) }}
 
-    <span class="gray-bar"></span>
+  <span class="gray-bar"></span>
 
-    <select class="search-box__select" name="genre_id" id="searchGenre">
-      <option value="">All genre</option>
-      @foreach($genres as $genre)
-      <option value="{{ $genre->id }}">
-        {{$genre->name}}
-      </option>
-      @endforeach
-    </select>
+  {{ Form::select('genre_id', $genres, $genre ?? null, ['class'=>'search-box__select', 'placeholder'=>'All genre', 'id'=>'searchGenre']) }}
 
-    <span class="gray-bar"></span>
+  <span class="gray-bar"></span>
 
-    <button class="search-box__search-icon">
-      <i class="fa fa-search" aria-hidden="true"></i>
-    </button>
+  <i class="fa fa-search search-box__search-icon" aria-hidden="true"></i>
 
-    <input type="text" name="name" value="Search ..." class="search-box__input" onfocus="if (this.value == 'Search ...')
-      this.value = '';" onblur="if (this.value == '')
-      this.value = 'Search ...';">
-  </div>
-</form>
+  {{ Form::text('name', 'Search ...', ['class'=>'search-box__input', 'onfocus' => 'this.value = "";'])}}
+
+  {{ Form::submit('検索')}}
+</div>
+{{ Form::close() }}
 @endsection
 
 @section('content')
 <div class="shop-card-wrapper">
+
+  @if( $shops->isEmpty() )
+  <p class="request-text">該当するレストランがありません</p>
+  @else
+
   @foreach($shops as $shop)
   <div class="shop-card w22p w100p768 w45p1150">
 
@@ -73,6 +62,8 @@
     </div>
   </div>
   @endforeach
+
+  @endif
 </div>
 @endsection
 

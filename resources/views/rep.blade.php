@@ -14,7 +14,7 @@
     <div class="align-center">
       <h2 class="rep-shop__title">店舗情報</h2>
       <form action="">
-        <button class="blue-btn">変更する</button>
+        <button class="blue-btn">編集する</button>
       </form>
     </div>
     <div class="spacebtw">

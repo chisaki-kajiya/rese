@@ -20,7 +20,7 @@ body {
   transition: .5s;
 }
 
-.auth-request-text {
+.request-text {
   margin-bottom: 20px;
   background-color: #ffffff;
   padding: 20px;

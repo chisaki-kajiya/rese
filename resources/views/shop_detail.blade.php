@@ -69,9 +69,9 @@
       <button class="booking-form__btn">予約する</button>
     </form>
     @elseif(Auth::check())
-    <p class="auth-request-text">RESEからのメールを確認すると、レストランの予約ができるようになります</p>
+    <p class="request-text">RESEからのメールを確認すると、レストランの予約ができるようになります</p>
     @else
-    <p class="auth-request-text">ログインするとレストランの予約ができるようになります</p>
+    <p class="request-text">ログインするとレストランの予約ができるようになります</p>
     @endif
 
   </div>
