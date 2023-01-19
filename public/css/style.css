@@ -251,7 +251,6 @@ body {
   border-radius: 5px;
   box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, .5);
   cursor: pointer;
-  height: 20px;
 }
 @media screen and (max-width: 1150px) {
   .header__icon {
@@ -389,7 +388,7 @@ body {
 /* shop_all.blade.php */
 .search-box {
   background-color: #ffffff;
-  padding: 10px;
+  padding: 5px 10px;
   display: flex;
 }
 @media screen and (max-width: 1150px) {
@@ -680,6 +679,10 @@ body {
 }
 
 /* admin.blade.php */
+.admin__content-wrapper {
+  margin: 30px 150px;
+}
+
 .admin__header-right {
   color: #305dff;
   text-decoration: none;
@@ -691,12 +694,11 @@ body {
 }
 
 .admin__content-title {
-  margin: 30px 150px 10px;
+  margin-bottom: 10px;
   font-size: 20px;
 }
 
 .admin__table {
-  margin: 0 150px;
   border-collapse: separate;
   border-spacing: 10px 10px;
 }
@@ -706,12 +708,7 @@ body {
   font-weight: normal;
 }
 
-.admin__register-btn {
-  margin-left: 400px;
-}
-
 .admin__error {
-  margin: 0 150px;
   background-color: #ffffff;
   padding: 20px;
   border-radius: 5px;

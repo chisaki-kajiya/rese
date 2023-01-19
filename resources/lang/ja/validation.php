@@ -124,7 +124,11 @@ return [
     'time' => '時間',
     'number' => '人数',
     'shop_id' => 'Shop ID',
-    'ID' => 'ID'
+    'ID' => 'ID',
+    'area_id' => 'Area ID',
+    'genre_id' => 'Genre ID',
+    'outline' => '説明',
+    'image_url' => '画像',
   ],
 
 ];

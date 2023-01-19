@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Area;
 use App\Models\Genre;
-use App\Models\Like;
 use App\Models\Shop;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,8 +14,17 @@ class ShopController extends Controller
     {
         $areas = Area::all()->pluck('name', 'id');
         $genres = Genre::all()->pluck('name', 'id');
-        $shops = Shop::all();
-
+        $shops = Shop::query()
+            ->select(
+                'shops.id as id',
+                'shops.name as name',
+                'shops.image_url as image_url',
+                'areas.name as area_name',
+                'genres.name as genre_name',
+            )
+            ->join('areas', 'shops.area_id', '=', 'areas.id')
+            ->join('genres', 'shops.genre_id', '=', 'genres.id')
+            ->get();
         return view('shop_all', [
             'areas' => $areas,
             'genres' => $genres,

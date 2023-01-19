@@ -37,16 +37,6 @@ class Shop extends Model
         return $this->hasMany('App\Models\Representative');
     }
 
-    public function getArea()
-    {
-        return optional($this->area)->name;
-    }
-
-    public function getGenre()
-    {
-        return optional($this->genre)->name;
-    }
-
     public function getLike()
     {
         $likes = Like::all()->where('user_id', Auth::id())->where('shop_id', $this->id);

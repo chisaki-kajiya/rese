@@ -43,7 +43,7 @@
 
     <div class="shop-card__content">
       <h2 class="shop-card__name">{{$shop->name}}</h2>
-      <p class="shop-card__tag--area">#{{$shop->getArea()}} #{{$shop->getGenre()}}</p>
+      <p class="shop-card__tag--area">#{{$shop->area_name}} #{{$shop->genre_name}}</p>
 
       <div class="spacebtw mt20">
         <form action="/detail">

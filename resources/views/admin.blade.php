@@ -7,7 +7,7 @@
 @endsection
 
 @section('content')
-<div>
+<div class="admin__content-wrapper">
   <h2 class="admin__content-title">店舗責任者登録</h2>
 
   @if (count($errors) > 0)
