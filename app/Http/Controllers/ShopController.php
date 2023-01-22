@@ -52,10 +52,10 @@ class ShopController extends Controller
             ->join('genres', 'shops.genre_id', '=', 'genres.id');
 
         if (isset($request->area_id)) {
-            $shop->where('area_id', "{$request->area_id}");
+            $shop->where('area_id', $request->area_id);
         }
         if (isset($request->genre_id)) {
-            $shop->where('genre_id', "{$request->genre_id}");
+            $shop->where('genre_id', $request->genre_id);
         }
         if (isset($request->name) && $request->name != "Search ...") {
             $shop->where('name', 'LIKE', "%{$request->name}%");

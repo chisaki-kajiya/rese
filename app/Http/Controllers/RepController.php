@@ -29,7 +29,7 @@ class RepController extends Controller
             ->join('representatives', 'shops.id', '=', 'representatives.shop_id')
             ->where('representatives.user_id', Auth::id())
             ->first();
-        $bookings = Booking::query()
+        $bookings = Booking::orderBy('start', 'asc')
                 ->select(
                     'bookings.start as start',
                     'bookings.number as number',

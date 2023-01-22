@@ -25,7 +25,6 @@ Route::get('/detail', [ShopController::class, 'detail']);
 
 Route::post('/like', [LikeController::class, 'create']);
 Route::post('/unlike', [LikeController::class, 'delete']);
-Route::post('/mypage/unlike', [LikeController::class, 'remove']);
 
 Route::get('/mypage', [HomeController::class, 'index']);
 

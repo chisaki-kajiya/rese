@@ -143,7 +143,7 @@
               <button class="blue-btn">詳しくみる</button>
             </form>
 
-            <form action="/mypage/unlike" method="POST">
+            <form action="/unlike" method="POST">
               @csrf
               <button class="shop-card__like--red" name="shop_id" value="{{ $like->shop_id }}">❤︎</button>
             </form>

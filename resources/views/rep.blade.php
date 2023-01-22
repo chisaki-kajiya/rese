@@ -42,20 +42,21 @@
     </div>
   </div>
 
-  <div>
-    <h2>予約情報</h2>
-    <p>{{ $bookings }}</p>
-    <table>
+  <div class="rep-booking__container">
+    <h2 class="rep-booking__title">予約情報</h2>
+    <table class="rep-booking__table">
       <tr>
         <th>日程</th>
         <th>名前</th>
         <th>人数</th>
       </tr>
+      @foreach($bookings as $booking)
       <tr>
-        <td>2022/1/1</td>
-        <td>梶屋</td>
-        <td>3</td>
+        <td>{{$booking->start}}</td>
+        <td>{{$booking->name}}</td>
+        <td>{{$booking->number}}</td>
       </tr>
+      @endforeach
     </table>
   </div>
 </div>
