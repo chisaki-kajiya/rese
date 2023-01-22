@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Area;
+use App\Models\Booking;
 use App\Models\Genre;
 use App\Models\Shop;
 use App\Http\Requests\ShopRequest;
@@ -28,9 +29,19 @@ class RepController extends Controller
             ->join('representatives', 'shops.id', '=', 'representatives.shop_id')
             ->where('representatives.user_id', Auth::id())
             ->first();
+        $bookings = Booking::query()
+                ->select(
+                    'bookings.start as start',
+                    'bookings.number as number',
+                    'users.name as name'
+                )
+                ->join('users', 'bookings.user_id', '=', 'users.id')
+                ->where('bookings.shop_id', $shop->id)
+                ->get();
         return view('rep', [
             'user' => $user,
-            'shop' => $shop
+            'shop' => $shop,
+            'bookings' => $bookings
         ]);
     }
 

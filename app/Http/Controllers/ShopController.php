@@ -36,10 +36,21 @@ class ShopController extends Controller
     {
         $area = $request->area_id;
         $genre = $request->genre_id;
+
         $areas = Area::all()->pluck('name', 'id');
         $genres = Genre::all()->pluck('name', 'id');
 
-        $shop = Shop::query();
+        $shop = Shop::query()
+            ->select(
+                'shops.id as id',
+                'shops.name as name',
+                'shops.image_url as image_url',
+                'areas.name as area_name',
+                'genres.name as genre_name',
+            )
+            ->join('areas', 'shops.area_id', '=', 'areas.id')
+            ->join('genres', 'shops.genre_id', '=', 'genres.id');
+
         if (isset($request->area_id)) {
             $shop->where('area_id', "{$request->area_id}");
         }
@@ -62,7 +73,19 @@ class ShopController extends Controller
 
     public function detail(Request $request)
     {
-        $shop = Shop::find($request->id);
+        $shop = Shop::query()
+            ->select(
+                'shops.id as id',
+                'shops.name as name',
+                'shops.image_url as image_url',
+                'shops.outline',
+                'areas.name as area_name',
+                'genres.name as genre_name',
+            )
+            ->join('areas', 'shops.area_id', '=', 'areas.id')
+            ->join('genres', 'shops.genre_id', '=', 'genres.id')
+            ->where('shops.id', $request->id)
+            ->first();
         $user['email_verified_at'] = '';
         if (Auth::check()) {
             $user = Auth::user();

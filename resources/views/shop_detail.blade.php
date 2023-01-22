@@ -14,9 +14,9 @@
 
     <img src="{{$shop->image_url}}" alt="img" class="detail__shop-img">
 
-    <p class="mb30">#{{$shop->getArea()}} #{{$shop->getGenre()}}</p>
+    <p class="mb30">#{{$shop->area_name}} #{{$shop->genre_name}}</p>
 
-    <p class="mb30_768">#{{$shop->outline}}</p>
+    <p class="mb30_768">{{$shop->outline}}</p>
   </div>
 
   <div class="w48p w100p768">

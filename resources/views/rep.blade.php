@@ -7,7 +7,7 @@
 @endsection
 
 @section('content')
-<div>
+<div class="admin__content-wrapper">
   <p class="rep__top-name">{{$user->name}} さん</p>
 
   <div class="rep-shop__container">
@@ -40,6 +40,23 @@
         </table>
       </div>
     </div>
+  </div>
+
+  <div>
+    <h2>予約情報</h2>
+    <p>{{ $bookings }}</p>
+    <table>
+      <tr>
+        <th>日程</th>
+        <th>名前</th>
+        <th>人数</th>
+      </tr>
+      <tr>
+        <td>2022/1/1</td>
+        <td>梶屋</td>
+        <td>3</td>
+      </tr>
+    </table>
   </div>
 </div>
 @endsection
