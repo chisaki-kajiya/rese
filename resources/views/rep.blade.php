@@ -17,6 +17,46 @@
   @endif
 
   <div class="rep-shop__container">
+    @if( empty($shop) == true )
+
+    <h2>新規登録</h2>
+    @if (count($errors) > 0)
+    <div class="admin__error">
+      <h3 class="red">登録エラー</h3>
+      @foreach ($errors->all() as $error)
+      <p class="red mt10">{{$error}}</p>
+      @endforeach
+    </div>
+    @endif
+
+    {{Form::open(['url' => '/rep/create', 'method' => 'POST'])}}
+    {{Form::token()}}
+    <table class="admin__table">
+      <tr>
+        <th class="admin__table-head">店舗名</th>
+        <td>{{Form::text('name', null)}}</td>
+      </tr>
+      <tr>
+        <th class="admin__table-head">エリア</th>
+        <td>{{ Form::select('area_id', $areas) }}</td>
+      </tr>
+      <tr>
+        <th class="admin__table-head">ジャンル</th>
+        <td>{{ Form::select('genre_id', $genres) }}</td>
+      </tr>
+      <tr>
+        <th class="admin__table-head">説明</th>
+        <td>{{Form::textarea('outline' , null, ['rows' => '5'])}}</td>
+      </tr>
+      <tr>
+        <th class="admin__table-head">画像</th>
+        <td>{{Form::textarea('image_url', null, ['rows' => '2'])}}</td>
+      </tr>
+    </table>
+    {{Form::submit('登録')}}
+    {{Form::close()}}
+
+    @else
     <div class="spacebtw">
       <h2 class="rep-shop__title">店舗情報</h2>
       <a href="/rep/update" class="blue-btn">編集する</a>
@@ -46,8 +86,16 @@
         </table>
       </div>
     </div>
+    @endif
   </div>
 
+  @if( empty($shop) == false && $bookings->isEmpty())
+  <div class="rep-booking__container">
+    <h2 class="rep-booking__title">予約情報</h2>
+    <p class="request-text mt10">予約がまだありません</p>
+  </div>
+
+  @elseif ( empty($shop) == false )
   <div class="rep-booking__container">
     <h2 class="rep-booking__title">予約情報</h2>
     <table class="rep-booking__table">
@@ -71,5 +119,6 @@
       @endforeach
     </table>
   </div>
+  @endif
 </div>
 @endsection

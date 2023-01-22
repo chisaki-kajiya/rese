@@ -37,6 +37,7 @@ Route::get('/admin', [AdminController::class, 'index']);
 Route::post('/admin/register', [AdminController::class, 'create']);
 
 Route::get('/rep', [RepController::class, 'index']);
+Route::post('/rep/create', [RepController::class, 'create']);
 Route::get('/rep/update', [RepController::class, 'change']);
 Route::post('/rep/update', [RepController::class, 'update']);
 

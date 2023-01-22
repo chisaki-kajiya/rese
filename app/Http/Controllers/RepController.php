@@ -7,6 +7,7 @@ use App\Models\Booking;
 use App\Models\Genre;
 use App\Models\Shop;
 use App\Http\Requests\ShopRequest;
+use App\Models\Representative;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,6 +15,8 @@ class RepController extends Controller
 {
     public function index()
     {
+        $areas = Area::all()->pluck('name', 'id');
+        $genres = Genre::all()->pluck('name', 'id');
         $user = Auth::user();
         $shop = Shop::query()
             ->select(
@@ -29,7 +32,9 @@ class RepController extends Controller
             ->join('representatives', 'shops.id', '=', 'representatives.shop_id')
             ->where('representatives.user_id', Auth::id())
             ->first();
-        $bookings = Booking::orderBy('start', 'asc')
+        $bookings = "";
+        if( $shop ){
+            $bookings = Booking::orderBy('start', 'asc')
                 ->select(
                     'bookings.id as id',
                     'bookings.start as start',
@@ -39,11 +44,23 @@ class RepController extends Controller
                 ->join('users', 'bookings.user_id', '=', 'users.id')
                 ->where('bookings.shop_id', $shop->id)
                 ->get();
+        }
         return view('rep', [
             'user' => $user,
             'shop' => $shop,
-            'bookings' => $bookings
+            'bookings' => $bookings,
+            'areas' => $areas,
+            'genres' => $genres
         ]);
+    }
+
+    public function create(Request $request)
+    {
+        $shop = Shop::create($request->all());
+        $representative['user_id'] = Auth::id();
+        $representative['shop_id'] = $shop->id;
+        Representative::create($representative);
+        return redirect('/rep');
     }
 
     public function change()

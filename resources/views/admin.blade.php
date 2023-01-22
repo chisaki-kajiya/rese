@@ -19,6 +19,12 @@
   </div>
   @endif
 
+  @if (session('flash_message'))
+  <div class="flash_message mt20">
+    {{ session('flash_message') }}
+  </div>
+  @endif
+
   <form action="/admin/register" method="POST">
     @csrf
     <table class="admin__table">

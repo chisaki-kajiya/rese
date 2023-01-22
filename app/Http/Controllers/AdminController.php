@@ -26,6 +26,6 @@ class AdminController extends Controller
 
         event(new Registered($user));
 
-        return view('thanks');
+        return redirect('admin')->with('flash_message', '店舗責任者を登録しました');
     }
 }

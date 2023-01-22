@@ -46,6 +46,6 @@
   </table>
   {{Form::submit('変更')}}
   {{Form::close()}}
-  <a href="/rep">もどる</a>
+  <a href="/rep" class="block mt20">もどる</a>
 </div>
 @endsection
