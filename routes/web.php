@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LikeController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\RepController;
 use App\Http\Controllers\ShopController;
 use Illuminate\Support\Facades\Route;
@@ -38,5 +39,8 @@ Route::post('/admin/register', [AdminController::class, 'create']);
 Route::get('/rep', [RepController::class, 'index']);
 Route::get('/rep/update', [RepController::class, 'change']);
 Route::post('/rep/update', [RepController::class, 'update']);
+
+Route::get('/rep/mail', [MailController::class, 'index']);
+Route::post('/rep/mail', [MailController::class, 'send']);
 
 require __DIR__.'/auth.php';

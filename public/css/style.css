@@ -164,6 +164,10 @@ body {
   margin: 0 0 0 auto;
 }
 
+.block {
+  display: block;
+}
+
 .flex {
   display: flex;
 }
@@ -757,7 +761,7 @@ body {
 
 .rep-booking__table {
   border-collapse: separate;
-  border-spacing: 10px 10px;
+  border-spacing: 20px 10px;
   text-align: left;
 }
 

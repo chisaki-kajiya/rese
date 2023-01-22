@@ -31,6 +31,7 @@ class RepController extends Controller
             ->first();
         $bookings = Booking::orderBy('start', 'asc')
                 ->select(
+                    'bookings.id as id',
                     'bookings.start as start',
                     'bookings.number as number',
                     'users.name as name'

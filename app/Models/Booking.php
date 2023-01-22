@@ -37,4 +37,10 @@ class Booking extends Model
         $date = $this->start;
         return date('H', strtotime($date));
     }
+
+    public function getStart()
+    {
+        $date = $this->start;
+        return date('Y/m/d H:i', strtotime($date));
+    }
 }

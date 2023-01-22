@@ -3,7 +3,7 @@
 @section('title', '店舗責任者ページ')
 
 @section('header_right')
-<p class="admin__header-right">店舗責任者ページ</p>
+<a href="/rep" class="admin__header-right">店舗責任者ページ</a>
 @endsection
 
 @section('content')

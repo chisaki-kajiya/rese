@@ -3,12 +3,18 @@
 @section('title', '店舗責任者ページ')
 
 @section('header_right')
-<p class="admin__header-right">店舗責任者ページ</p>
+<a href="/rep" class="admin__header-right">店舗責任者ページ</a>
 @endsection
 
 @section('content')
 <div class="admin__content-wrapper">
   <p class="rep__top-name">{{$user->name}} さん</p>
+
+  @if (session('flash_message'))
+  <div class="flash_message">
+    {{ session('flash_message') }}
+  </div>
+  @endif
 
   <div class="rep-shop__container">
     <div class="spacebtw">
@@ -52,9 +58,15 @@
       </tr>
       @foreach($bookings as $booking)
       <tr>
-        <td>{{$booking->start}}</td>
+        <td>{{$booking->getStart()}}</td>
         <td>{{$booking->name}}</td>
         <td>{{$booking->number}}</td>
+        <td>
+          {{ Form::open(['url' => '/rep/mail', 'method' => 'GET']) }}
+          {{Form::hidden('id', $booking->id)}}
+          {{ Form::submit('メールを送る', ['class' => 'blue-btn'])}}
+          {{ Form::close() }}
+        </td>
       </tr>
       @endforeach
     </table>
