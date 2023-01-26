@@ -19,6 +19,12 @@
   </div>
   @endif
 
+  @if (session('flash_message'))
+  <div class="flash_message mt20">
+    {{ session('flash_message') }}
+  </div>
+  @endif
+
   {{Form::open(['url' => '/rep/update', 'method' => 'POST'])}}
   {{Form::token()}}
   {{Form::hidden('id', $shop->id)}}

@@ -21,7 +21,7 @@
 
     <h2>新規登録</h2>
     @if (count($errors) > 0)
-    <div class="admin__error">
+    <div class="admin__error mt10">
       <h3 class="red">登録エラー</h3>
       @foreach ($errors->all() as $error)
       <p class="red mt10">{{$error}}</p>

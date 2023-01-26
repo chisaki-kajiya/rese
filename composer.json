@@ -11,7 +11,8 @@
         "laravel/framework": "^8.75",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
-        "laravelcollective/html": "6.*"
+        "laravelcollective/html": "6.*",
+        "nesbot/carbon": "^2.65"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

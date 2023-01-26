@@ -18,9 +18,9 @@
   <div class="search-box__row">
     <i class="fa fa-search search-box__search-icon" aria-hidden="true"></i>
 
-    {{ Form::text('name', 'Search ...', ['class'=>'search-box__input', 'onfocus' => 'this.value = "";'])}}
+    {{ Form::text('name', $search ?? 'Search ...', ['class'=>'search-box__input', 'onfocus' => 'this.value = "";', 'id'=>'searchName'])}}
 
-    {{ Form::submit('検索', ['class' => 'blue-btn shop-search-btn '])}}
+    {{ Form::submit('検索', ['class' => 'blue-btn shop-search-btn'])}}
   </div>
 
 </div>

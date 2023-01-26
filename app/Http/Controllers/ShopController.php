@@ -36,6 +36,7 @@ class ShopController extends Controller
     {
         $area = $request->area_id;
         $genre = $request->genre_id;
+        $search =$request->name;
 
         $areas = Area::all()->pluck('name', 'id');
         $genres = Genre::all()->pluck('name', 'id');
@@ -58,7 +59,7 @@ class ShopController extends Controller
             $shop->where('genre_id', $request->genre_id);
         }
         if (isset($request->name) && $request->name != "Search ...") {
-            $shop->where('name', 'LIKE', "%{$request->name}%");
+            $shop->where('shops.name', 'LIKE', "%{$request->name}%");
         }
         $shops = $shop->get();
 
@@ -67,6 +68,7 @@ class ShopController extends Controller
             'areas' => $areas,
             'genre' => $genre,
             'genres' => $genres,
+            'search' => $search,
             'shops' => $shops
         ]);
     }

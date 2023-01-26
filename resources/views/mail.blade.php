@@ -12,15 +12,15 @@
   <table class="rep-booking__table">
     <tr>
       <th>店名</th>
-      <th>日程</th>
       <th>名前</th>
       <th>人数</th>
+      <th>日程</th>
     </tr>
     <tr>
       <td id="shopName">{{$booking->shop_name}}</td>
-      <td id="start">{{$booking->getStart()}}</td>
       <td id="guestName">{{$booking->guest_name}}</td>
       <td id="number">{{$booking->number}}</td>
+      <td id="start">{{$booking->getStart()}}</td>
     </tr>
   </table>
   {{ Form::open(['url' => '/rep/mail', 'method' => 'POST']) }}

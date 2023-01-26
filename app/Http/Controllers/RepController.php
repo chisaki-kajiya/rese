@@ -54,7 +54,7 @@ class RepController extends Controller
         ]);
     }
 
-    public function create(Request $request)
+    public function create(ShopRequest $request)
     {
         $shop = Shop::create($request->all());
         $representative['user_id'] = Auth::id();
@@ -91,24 +91,6 @@ class RepController extends Controller
         $shop = $request->all();
         unset($shop['_token']);
         Shop::where('id', $request->id)->update($shop);
-        $areas = Area::all()->pluck('name', 'id');
-        $genres = Genre::all()->pluck('name', 'id');
-        $shop = Shop::query()
-            ->select(
-                'shops.id as id',
-                'shops.name as name',
-                'shops.image_url as image_url',
-                'shops.outline as outline',
-                'shops.area_id as area_id',
-                'shops.genre_id as genre_id',
-            )
-            ->join('representatives', 'shops.id', '=', 'representatives.shop_id')
-            ->where('representatives.user_id', Auth::id())
-            ->first();
-        return view('rep_change', [
-            'shop' => $shop,
-            'areas' => $areas,
-            'genres' => $genres
-        ]);
+        return redirect('/rep/update')->with('flash_message', '店舗情報を変更しました');
     }
 }
