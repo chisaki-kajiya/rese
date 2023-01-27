@@ -39,7 +39,6 @@ class BookingDate extends Command
      */
     public function handle()
     {
-        logger('test');
         $tomorrow = date('Y-m-d H:i:s', strtotime('+1 day'));
         $today = date('Y-m-d H:i:s', strtotime('now'));
         $bookings = Booking::query()

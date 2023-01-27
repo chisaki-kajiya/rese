@@ -16,26 +16,9 @@ class Booking extends Model
         return $this->belongsTo('App\Models\User');
     }
 
-    public function getShop()
-    {
-        return optional($this->shop)->name;
-    }
-
     public function shop()
     {
         return $this->belongsTo('App\Models\Shop');
-    }
-
-    public function getDate()
-    {
-        $date = $this->start;
-        return date('Y-m-d', strtotime($date));
-    }
-
-    public function getTime()
-    {
-        $date = $this->start;
-        return date('H', strtotime($date));
     }
 
     public function getStart()

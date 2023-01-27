@@ -38,7 +38,7 @@
   <div class="shop-card w22p w100p768 w45p1150">
 
     <div class="shop-card__top">
-      <img src="{{$shop->image_url}}" alt="img" class="shop-card__image">
+      <img src="{{ asset($shop->image_path) }}" alt="img" class="shop-card__image">
     </div>
 
     <div class="shop-card__content">

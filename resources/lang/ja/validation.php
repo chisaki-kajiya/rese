@@ -128,7 +128,7 @@ return [
     'area_id' => 'Area ID',
     'genre_id' => 'Genre ID',
     'outline' => '説明',
-    'image_url' => '画像',
+    'image' => '画像',
   ],
 
 ];

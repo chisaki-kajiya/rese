@@ -767,3 +767,10 @@ body {
   text-align: left;
 }
 
+/* rep_change.blade.php */
+.rep-change__image {
+  width: 40%;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 20px;
+}

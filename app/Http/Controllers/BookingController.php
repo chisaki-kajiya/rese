@@ -15,7 +15,9 @@ class BookingController extends Controller
         $booking = $request->all();
         $booking['user_id'] = Auth::id();
         $booking['start'] = $request->date.' '.$request->time;
+
         Booking::create($booking);
+
         return view('done');
     }
 
@@ -23,7 +25,8 @@ class BookingController extends Controller
 )
     {
         Booking::find($request->id)->delete();
-        return redirect('/mypage');
+
+        return redirect('/mypage')->with('flash_message', '予約をキャンセルしました');
     }
 
     public function change(BookChangeRequest $request)
@@ -34,7 +37,9 @@ class BookingController extends Controller
         unset($booking['_token']);
         unset($booking['date']);
         unset($booking['time']);
+
         Booking::where('id', $request->id)->update($booking);
+
         return redirect('/mypage')->with('flash_message', '予約を変更しました');
     }
 }

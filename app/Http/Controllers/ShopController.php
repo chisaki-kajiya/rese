@@ -18,13 +18,14 @@ class ShopController extends Controller
             ->select(
                 'shops.id as id',
                 'shops.name as name',
-                'shops.image_url as image_url',
+                'shops.image_path as image_path',
                 'areas.name as area_name',
                 'genres.name as genre_name',
             )
             ->join('areas', 'shops.area_id', '=', 'areas.id')
             ->join('genres', 'shops.genre_id', '=', 'genres.id')
             ->get();
+
         return view('shop_all', [
             'areas' => $areas,
             'genres' => $genres,
@@ -40,12 +41,11 @@ class ShopController extends Controller
 
         $areas = Area::all()->pluck('name', 'id');
         $genres = Genre::all()->pluck('name', 'id');
-
         $shop = Shop::query()
             ->select(
                 'shops.id as id',
                 'shops.name as name',
-                'shops.image_url as image_url',
+                'shops.image_path as image_path',
                 'areas.name as area_name',
                 'genres.name as genre_name',
             )
@@ -79,7 +79,7 @@ class ShopController extends Controller
             ->select(
                 'shops.id as id',
                 'shops.name as name',
-                'shops.image_url as image_url',
+                'shops.image_path as image_path',
                 'shops.outline',
                 'areas.name as area_name',
                 'genres.name as genre_name',
@@ -88,10 +88,12 @@ class ShopController extends Controller
             ->join('genres', 'shops.genre_id', '=', 'genres.id')
             ->where('shops.id', $request->id)
             ->first();
+
         $user['email_verified_at'] = '';
         if (Auth::check()) {
             $user = Auth::user();
         }
+        
         return view('shop_detail', [
             'shop' => $shop,
             'user' => $user

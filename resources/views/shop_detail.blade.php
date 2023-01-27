@@ -12,7 +12,7 @@
       <h2 class="detail__shop-name">{{$shop->name}}</h2>
     </div>
 
-    <img src="{{$shop->image_url}}" alt="img" class="detail__shop-img">
+    <img src="{{ asset($shop->image_path) }}" alt="img" class="detail__shop-img">
 
     <p class="mb30">#{{$shop->area_name}} #{{$shop->genre_name}}</p>
 

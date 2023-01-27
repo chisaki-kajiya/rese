@@ -25,7 +25,7 @@
   </div>
   @endif
 
-  {{Form::open(['url' => '/rep/update', 'method' => 'POST'])}}
+  {{Form::open(['url' => '/rep/update', 'method' => 'POST', 'files' => true])}}
   {{Form::token()}}
   {{Form::hidden('id', $shop->id)}}
   <table class="admin__table">
@@ -47,11 +47,16 @@
     </tr>
     <tr>
       <th class="admin__table-head">画像</th>
-      <td>{{Form::textarea('image_url', $shop->image_url, ['rows' => '2'])}}</td>
+      <td>{{Form::file('image', ['onchange' => 'showImage(this)'])}}</td>
     </tr>
   </table>
+  <img src="{{ asset($shop->image_path) }}" alt="img" class="rep-change__image" id='image'>
   {{Form::submit('変更')}}
   {{Form::close()}}
   <a href="/rep" class="block mt20">もどる</a>
 </div>
+@endsection
+
+@section('js')
+<script src="/js/change_image.js"></script>
 @endsection

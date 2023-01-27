@@ -29,7 +29,7 @@
     </div>
     @endif
 
-    {{Form::open(['url' => '/rep/create', 'method' => 'POST'])}}
+    {{Form::open(['url' => '/rep/create', 'method' => 'POST', 'files' => true])}}
     {{Form::token()}}
     <table class="admin__table">
       <tr>
@@ -50,7 +50,7 @@
       </tr>
       <tr>
         <th class="admin__table-head">画像</th>
-        <td>{{Form::textarea('image_url', null, ['rows' => '2'])}}</td>
+        <td>{{Form::file('image')}}</td>
       </tr>
     </table>
     {{Form::submit('登録')}}
@@ -63,7 +63,7 @@
     </div>
     <div class="spacebtw">
       <div class="w40p">
-        <img src="{{$shop->image_url}}" alt="img" class="rep-shop__image">
+        <img src="{{ asset($shop->image_path) }}" alt="img" class="rep-shop__image">
       </div>
       <div class="w55p">
         <table class="rep-shop__info-table">

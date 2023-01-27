@@ -17,7 +17,7 @@ class CreateShopsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name', 255)->nullable(false);
             $table->string('outline', 512)->nullable(false);
-            $table->string('image_url', 255)->nullable(false);
+            $table->string('image_path', 255)->nullable(false);
             $table->bigInteger('area_id')->nullable(false);
             $table->bigInteger('genre_id')->nullable(false);
             $table->timestamp('created_at')->useCurrent()->nullable();

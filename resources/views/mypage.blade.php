@@ -60,13 +60,13 @@
 
             <tr>
               <th class="mypage-booking__content-head">Shop</th>
-              <td>{{ $booking->getShop() }}</td>
+              <td>{{ $booking->shop_name }}</td>
             </tr>
 
             <tr>
               <th class="mypage-booking__content-head">Date</th>
               <td>
-                <input type="date" value="{{ $booking->getDate() }}" name="date" class="mypage-booking__input">
+                <input type="date" value="{{ date('Y-m-d', strtotime($booking->start)) }}" name="date" class="mypage-booking__input">
               </td>
             </tr>
 
@@ -74,7 +74,7 @@
               <th class="mypage-booking__content-head">Time</th>
               <td>
                 <select type="time" name="time" class="mypage-booking__input">
-                  @for ($i = 17; $i < 22; $i+=1) <option value="{{ $i }}:00" <?php if ($i == $booking->getTime()) {
+                  @for ($i = 17; $i < 22; $i+=1) <option value="{{ $i }}:00" <?php if ($i == date('H', strtotime($booking->start))) {
                                                                                 echo "selected";
                                                                               } ?>>
                     {{ $i }}:00
@@ -122,18 +122,18 @@
       <div class="shop-card w45p w100p768">
 
         <div class="shop-card__top">
-          <img src="{{ $like->getImage() }}" alt="img" class="shop-card__image">
+          <img src="{{ asset($like->image_path) }}" alt="img" class="shop-card__image">
         </div>
 
         <div class="shop-card__content">
           <h2 class="shop-card__name">
-            {{ $like->getShop() }}
+            {{ $like->shop_name }}
           </h2>
           <div class="flex">
             <p class="shop-card__tag--area">
-              #{{ $like->getArea() }}
+              #{{ $like->area_name }}
             </p>
-            <p>#{{ $like->getGenre() }}</p>
+            <p>#{{ $like->genre_name }}</p>
           </div>
 
           <div class="spacebtw mt20">

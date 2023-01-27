@@ -22,6 +22,7 @@ class MailController extends Controller
             ->join('shops', 'bookings.shop_id', '=', 'shops.id')
             ->where('bookings.id', $request->id)
             ->first();
+
         return view('mail', [
             'booking' => $booking
         ]);
@@ -44,6 +45,7 @@ class MailController extends Controller
                 ->to($email)
                 ->subject('【RESE】ご予約確定');
         });
+        
         return redirect ('/rep')->with('flash_message', 'メールを送信しました');
     }
 }

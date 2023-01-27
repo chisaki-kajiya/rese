@@ -13,13 +13,16 @@ class LikeController extends Controller
     {
         $like = $request->all();
         $like['user_id'] = Auth::id();
+
         Like::create($like);
+        
         return redirect('/');
     }
 
     public function delete(Request $request)
     {
         Like::where('shop_id', $request->shop_id)->first()->delete();
+        
         return redirect()->back();
     }
 }
