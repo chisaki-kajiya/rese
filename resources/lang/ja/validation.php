@@ -129,6 +129,7 @@ return [
     'genre_id' => 'Genre ID',
     'outline' => '説明',
     'image' => '画像',
+    'star' => 'スター'
   ],
 
 ];

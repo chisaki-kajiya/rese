@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\EvalRequest;
 use App\Models\Booking;
 use App\Models\Evaluation;
 use App\Models\Like;
@@ -85,10 +86,21 @@ class HomeController extends Controller
         ]);
     }
 
-    public function create(Request $request)
+    public function create(EvalRequest $request)
     {
         $eval = $request->all();
-        Evaluation::create($eval);
-        return redirect('/mypage')->with('flash_message', '評価を送信しました');
+        $booking = Booking::query()
+            ->where('id', $eval['booking_id'])
+            ->first();
+        $user_id = Auth::id();
+        if($booking['user_id'] == $user_id) {
+            Evaluation::create($eval);
+            return redirect('/mypage')->with('flash_message', '評価を送信しました');
+        } else {
+            return redirect('/mypage')->with([  
+                'flash_message' => '評価を送信できませんでした',
+                'style' => 'flash-message--red'
+            ]);
+        }
     }
 }

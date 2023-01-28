@@ -21,16 +21,17 @@
     </div>
 
     <div class="detail__yellow-stars-wrapper">
-      <span>★</span>
-      <span>★</span>
-      <span>★</span>
-      <span>★</span>
-      <span>★</span>
+      <span id="yellow-star1">★</span>
+      <span id="yellow-star2">★</span>
+      <span id="yellow-star3">★</span>
+      <span id="yellow-star4">★</span>
+      <span id="yellow-star5">★</span>
+      <span> </span>
     </div>
 
     <img src="{{ asset($shop->image_path) }}" alt="img" class="detail__shop-img">
 
-    <p class="mb30">#{{$shop->area_name}} #{{$shop->genre_name}}</p>
+    <p class="mb20">#{{$shop->area_name}} #{{$shop->genre_name}}</p>
 
     <p class="mb30_768">{{$shop->outline}}</p>
   </div>
@@ -95,5 +96,6 @@
 @endsection
 
 @section('js')
+<script src="/js/shop_star.js"></script>
 <script src="/js/booking.js"></script>
 @endsection

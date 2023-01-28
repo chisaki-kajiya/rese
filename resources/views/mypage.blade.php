@@ -20,7 +20,7 @@
     @endif
 
     @if (session('flash_message'))
-    <div class="flash_message">
+    <div class="flash_message {{session('style')}}">
       {{ session('flash_message') }}
     </div>
     @endif
@@ -136,14 +136,13 @@
 
       @if( $history->eval == null)
 
-      {{ Form::open(['url' => '/mypage/evaluate', 'method' => 'POST']) }}
-      {{Form::token()}}
+      {{ Form::open(['url' => '/mypage/evaluate', 'method' => 'GET']) }}
       {{ Form::hidden('booking_id', $history->id) }}
-      {{ Form::submit('評価する', ['class' => 'mypage-history__card-bottom mypage-history__card-bottom--hover'])}}
+      {{ Form::submit('評価する', ['class' => 'mypage-history__card-bottom--hover'])}}
       {{ Form::close() }}
 
       @else
-      <div class="mypage-history__card-bottom">評価済</div>
+      <div class="mypage-history__card-bottom--done">評価済</div>
 
       @endif
 

@@ -14,7 +14,7 @@
     </div>
     @endif
 
-    {{ Form::open(['url' => '/mypage/evaluate/create', 'method' => 'POST']) }}
+    {{ Form::open(['url' => '/mypage/evaluate', 'method' => 'POST']) }}
     {{ Form::token() }}
     {{ Form::hidden('booking_id', $history->id) }}
     <div class="booking-form">
