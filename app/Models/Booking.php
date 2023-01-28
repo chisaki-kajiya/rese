@@ -20,10 +20,4 @@ class Booking extends Model
     {
         return $this->belongsTo('App\Models\Shop');
     }
-
-    public function getStart()
-    {
-        $date = $this->start;
-        return date('Y/m/d H:i', strtotime($date));
-    }
 }

@@ -1,15 +1,31 @@
 @extends('layouts.default')
 
-@section('title', 'ショップ詳細-{{$shop->name}}')
+@section('title', 'ショップ詳細')
 
 @section('content')
 <div class="detail__wrapper">
-  <div class="w48p w100p768">
+  <div class="w48p w100p1150">
     <div class="flex">
       <a href="#" class="detail__back-btn" onclick="history.back()">
         <i class="fa fa-angle-left" aria-hidden="true"></i>
       </a>
       <h2 class="detail__shop-name">{{$shop->name}}</h2>
+    </div>
+
+    <div class="detail__gray-stars-wrapper">
+      <span>★</span>
+      <span>★</span>
+      <span>★</span>
+      <span>★</span>
+      <span>★</span>
+    </div>
+
+    <div class="detail__yellow-stars-wrapper">
+      <span>★</span>
+      <span>★</span>
+      <span>★</span>
+      <span>★</span>
+      <span>★</span>
     </div>
 
     <img src="{{ asset($shop->image_path) }}" alt="img" class="detail__shop-img">
@@ -19,7 +35,7 @@
     <p class="mb30_768">{{$shop->outline}}</p>
   </div>
 
-  <div class="w48p w100p768">
+  <div class="w48p w100p1150">
     @if (count($errors) > 0)
     <div class="booking-error">
       <h3 class="red">予約エラー</h3>

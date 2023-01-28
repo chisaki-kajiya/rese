@@ -28,6 +28,8 @@ Route::post('/like', [LikeController::class, 'create']);
 Route::post('/unlike', [LikeController::class, 'delete']);
 
 Route::get('/mypage', [HomeController::class, 'index']);
+Route::post('/mypage/evaluate', [HomeController::class, 'evaluate']);
+Route::post('/mypage/evaluate/create', [HomeController::class, 'create']);
 
 Route::post('/book', [BookingController::class, 'create']);
 Route::post('/book/cancel', [BookingController::class, 'cancel']);

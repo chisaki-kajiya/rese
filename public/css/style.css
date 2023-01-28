@@ -178,6 +178,10 @@ body {
   display: block;
 }
 
+.none {
+  display: none;
+}
+
 .flex {
   display: flex;
 }
@@ -497,7 +501,7 @@ body {
   justify-content: space-between;
   margin: 50px 150px;
 }
-@media screen and (max-width: 768px){
+@media screen and (max-width: 1150px){
   .detail__wrapper {
     justify-content: flex-start;
     flex-direction: column;
@@ -533,7 +537,7 @@ body {
   box-sizing: border-box;
   border-radius: 5px 5px 0 0;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1150px) {
   .booking-form {
     margin-top: 30px;
   }
@@ -680,8 +684,108 @@ body {
 
 .mypage-booking__change-btn:hover {
   background-color: #4464f4;
-  color: #ffffff;
   transition: .5s;
+}
+
+.mypage-history__card-top {
+  background-color: #c7d1f6;
+  padding: 30px 20px;
+  border-radius: 5px 5px 0 0;
+}
+
+.mypage-history__card-text {
+  font-size: 18px;
+}
+
+.mypage-history__booking-info-table {
+  border-collapse: separate;
+  border-spacing: 20px 10px;
+  text-align: left;
+}
+
+.mypage-history__card-bottom {
+  background-color: #b1bcf0;
+  border-radius: 0 0 5px 5px;
+  border: none;
+  width: 100%;
+  padding: 20px 0;
+  text-align: center;
+  display: block;
+  font-size: 14px;
+}
+
+.mypage-history__card-bottom--hover:hover {
+  background-color: #9daaed;
+  transition: .5s;
+}
+
+/* evaluation.blade.php */
+.eval-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 50px;
+}
+
+.eval-title {
+  color: #ffffff;
+  font-size: 20px;
+  margin: 20px;
+}
+
+.eval-history-table {
+  border-collapse: separate;
+  border-spacing: 20px 10px;
+  text-align: left;
+  color: #ffffff;
+}
+
+.eval__star-wrapper {
+  margin: 20px 20px 0;
+  color: #eeeeee;
+  font-size: 46px;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
+.eval__star {
+  margin-right: 20px;
+}
+
+#star1:hover,
+#star1:hover~#star2,
+#star1:hover~#star3,
+#star1:hover~#star4,
+#star1:hover~#star5 {
+  color: #ffd700;
+}
+
+#star2:hover,
+#star2:hover~#star3,
+#star2:hover~#star4,
+#star2:hover~#star5 {
+  color: #ffd700;
+}
+
+#star3:hover,
+#star3:hover~#star4,
+#star3:hover~#star5 {
+  color: #ffd700;
+}
+
+#star4:hover,
+#star4:hover~#star5 {
+  color: #ffd700;
+}
+
+#star5:hover {
+  color: #ffd700;
+}
+
+.eval__comment {
+  margin: 20px;
+  width: 80%;
+  padding: 10px;
 }
 
 /* admin.blade.php */

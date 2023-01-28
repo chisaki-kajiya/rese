@@ -29,7 +29,7 @@
     <p class="request-text">RESEからのメールを確認すると、レストランの予約ができるようになります</p>
 
     @elseif( $bookings->isEmpty() )
-    <p class="request-text">予約がまだありません</p>
+    <p class="request-text">予約がありません</p>
 
     @else
     @foreach($bookings as $booking)
@@ -64,6 +64,20 @@
             </tr>
 
             <tr>
+              <th class="mypage-booking__content-head">Number</th>
+              <td>
+                <select type="number" name="number" class="mypage-booking__input">
+                  @for ($i = 1; $i < 10; $i+=1) <option value="{{ $i }}" <?php if ($i == $booking->number) {
+                                                                            echo "selected";
+                                                                          } ?>>
+                    {{ $i }}人
+                    </option>
+                    @endfor
+                </select>
+              </td>
+            </tr>
+
+            <tr>
               <th class="mypage-booking__content-head">Date</th>
               <td>
                 <input type="date" value="{{ date('Y-m-d', strtotime($booking->start)) }}" name="date" class="mypage-booking__input">
@@ -84,20 +98,6 @@
               </td>
             </tr>
 
-            <tr>
-              <th class="mypage-booking__content-head">Number</th>
-              <td>
-                <select type="number" name="number" class="mypage-booking__input">
-                  @for ($i = 1; $i < 10; $i+=1) <option value="{{ $i }}" <?php if ($i == $booking->number) {
-                                                                            echo "selected";
-                                                                          } ?>>
-                    {{ $i }}人
-                    </option>
-                    @endfor
-                </select>
-              </td>
-            </tr>
-
           </table>
         </form>
 
@@ -106,6 +106,49 @@
     </div>
     @endforeach
     @endif
+
+    <h3 class="mypage__content-title">予約履歴</h3>
+
+    @if( $histories->isEmpty() )
+    <p class="request-text">予約履歴がありません</p>
+    @endif
+
+    @foreach($histories as $history)
+    <div class="mypage-booking-card">
+      <div class="mypage-history__card-top">
+
+        <table class="mypage-history__booking-info-table">
+          <tr>
+            <th>Shop</th>
+            <td>{{ $history->shop_name }}</td>
+          </tr>
+          <tr>
+            <th>Number</th>
+            <td>{{ $history->number }}人</td>
+          </tr>
+          <tr>
+            <th>Date & Time</th>
+            <td>{{ date('Y/m/d H:i', strtotime($history->start)) }}</td>
+          </tr>
+        </table>
+
+      </div>
+
+      @if( $history->eval == null)
+
+      {{ Form::open(['url' => '/mypage/evaluate', 'method' => 'POST']) }}
+      {{Form::token()}}
+      {{ Form::hidden('booking_id', $history->id) }}
+      {{ Form::submit('評価する', ['class' => 'mypage-history__card-bottom mypage-history__card-bottom--hover'])}}
+      {{ Form::close() }}
+
+      @else
+      <div class="mypage-history__card-bottom">評価済</div>
+
+      @endif
+
+    </div>
+    @endforeach
 
   </div>
 
@@ -153,9 +196,7 @@
         </div>
       </div>
       @endforeach
-
       @endif
-
     </div>
   </div>
 
