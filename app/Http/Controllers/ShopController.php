@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Area;
+use App\Models\Evaluation;
 use App\Models\Genre;
 use App\Models\Shop;
 use Illuminate\Http\Request;
@@ -89,6 +90,19 @@ class ShopController extends Controller
             ->where('shops.id', $request->id)
             ->first();
 
+        $star = Evaluation::query()
+            ->join('bookings', 'evaluations.booking_id', '=', 'bookings.id')
+            ->where('bookings.shop_id', $request->id)
+            ->avg('evaluations.star');
+        if ($star == null) {
+            $star = 3;
+        };
+
+        $evals = Evaluation::query()
+            ->join('bookings', 'evaluations.booking_id', '=', 'bookings.id')
+            ->where('bookings.shop_id', $request->id)
+            ->count();
+
         $user['email_verified_at'] = '';
         if (Auth::check()) {
             $user = Auth::user();
@@ -96,7 +110,9 @@ class ShopController extends Controller
         
         return view('shop_detail', [
             'shop' => $shop,
-            'user' => $user
+            'star' => $star,
+            'user' => $user,
+            'evals' => $evals
         ]);
     }
 }

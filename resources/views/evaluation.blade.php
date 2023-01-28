@@ -14,7 +14,7 @@
     </div>
     @endif
 
-    {{ Form::open(['url' => '/mypage/evaluate', 'method' => 'POST']) }}
+    {{ Form::open(['url' => '/evaluate', 'method' => 'POST']) }}
     {{ Form::token() }}
     {{ Form::hidden('booking_id', $history->id) }}
     <div class="booking-form">
@@ -36,19 +36,19 @@
       </table>
 
       <div class="eval__star-wrapper">
-        {{Form::radio('star', 1, false, ['class'=>'none','id'=>'star-radio1'])}}
+        {{Form::radio('star', 5, false, ['class'=>'none','id'=>'star-radio1'])}}
         {{Form::label('star-radio1','★', ['class' => 'eval__star', 'id' => 'star1'])}}
 
-        {{Form::radio('star', 2, false, ['class'=>'none','id'=>'star-radio2'])}}
+        {{Form::radio('star', 4, false, ['class'=>'none','id'=>'star-radio2'])}}
         {{Form::label('star-radio2','★', ['class' => 'eval__star', 'id' => 'star2'])}}
 
         {{Form::radio('star', 3, false, ['class'=>'none','id'=>'star-radio3'])}}
         {{Form::label('star-radio3','★', ['class' => 'eval__star', 'id' => 'star3'])}}
 
-        {{Form::radio('star', 4, false, ['class'=>'none','id'=>'star-radio4'])}}
+        {{Form::radio('star', 2, false, ['class'=>'none','id'=>'star-radio4'])}}
         {{Form::label('star-radio4','★', ['class' => 'eval__star', 'id' => 'star4'])}}
 
-        {{Form::radio('star', 5, false, ['class'=>'none','id'=>'star-radio5'])}}
+        {{Form::radio('star', 1, false, ['class'=>'none','id'=>'star-radio5'])}}
         {{Form::label('star-radio5','★', ['class' => 'eval__star', 'id' => 'star5'])}}
       </div>
       {{Form::textarea('comment', null, ['placeholder' => 'コメントをご記入ください', 'rows' => '6', 'class' => 'eval__comment'])}}

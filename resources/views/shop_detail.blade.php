@@ -18,6 +18,11 @@
       <span>★</span>
       <span>★</span>
       <span>★</span>
+      <span id="star-point" class="detail__eval-point">{{number_format($star, 1)}}</span>
+      {{ Form::open(['url' => '/evaluate/index', 'method' => 'GET', 'class' => 'detail__eval-form']) }}
+      {{ Form::hidden('shop_id', $shop->id) }}
+      {{ Form::submit($evals.'件', ['class' => 'detail__eval-text']) }}
+      {{ Form::close() }}
     </div>
 
     <div class="detail__yellow-stars-wrapper">
@@ -26,7 +31,6 @@
       <span id="yellow-star3">★</span>
       <span id="yellow-star4">★</span>
       <span id="yellow-star5">★</span>
-      <span> </span>
     </div>
 
     <img src="{{ asset($shop->image_path) }}" alt="img" class="detail__shop-img">

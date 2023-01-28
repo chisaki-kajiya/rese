@@ -136,7 +136,7 @@
 
       @if( $history->eval == null)
 
-      {{ Form::open(['url' => '/mypage/evaluate', 'method' => 'GET']) }}
+      {{ Form::open(['url' => '/evaluate', 'method' => 'GET']) }}
       {{ Form::hidden('booking_id', $history->id) }}
       {{ Form::submit('評価する', ['class' => 'mypage-history__card-bottom--hover'])}}
       {{ Form::close() }}

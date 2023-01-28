@@ -102,6 +102,10 @@ body {
   color: #ff0000;
 }
 
+.gray {
+  color: #4b4b4b;
+}
+
 .h18 {
   height: 18px;
 }
@@ -536,19 +540,36 @@ body {
 
 .detail__gray-stars-wrapper {
   margin-top: 20px;
-  font-size: 46px;
+  font-size: 40px;
   color: #ffffff;
 }
 
 .detail__yellow-stars-wrapper {
-  margin-top: -46px;
-  font-size: 46px;
+  margin-top: -40px;
+  font-size: 40px;
   color: #ffd700;
 }
 
 #yellow-star1,
 #yellow-star2 {
   display: none;
+}
+
+.detail__eval-point {
+  color: #ffd700;
+}
+
+.detail__eval-form {
+  display: inline;
+}
+
+.detail__eval-text {
+  color: #000000;
+  font-size: 20px;
+  display: inline;
+  border: none;
+  text-decoration: underline;
+  margin-left: -10px;
 }
 
 .detail__shop-img {
@@ -619,6 +640,52 @@ body {
   transition: .5s;
 }
 
+/* eval_detail.blade.php */
+.eval-detail__container {
+  margin: 50px 150px;
+}
+@media screen and (max-width: 1150px) {
+  .eval-detail__container {
+    margin: 30px 50px;
+  }
+}
+
+.eval-detail__title-top {
+  font-size: 32px;
+  margin-left: 10px;
+}
+
+.eval-detail__title-bottom {
+  font-size: 20px;
+  margin: 20px 0 30px;
+}
+
+.eval-card {
+  background-color: #ffffff;
+  box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, .5);
+  display: flex;
+  border-radius: 5px;
+  padding: 30px;
+  margin-bottom: 20px;
+}
+
+.eval-card__user-icon {
+  display: block;
+  color: #4b4b4b;
+  font-size: 80px;
+  margin-right: 30px;
+}
+
+.eval-card__stars-wrapper {
+  color: #ffd700;
+  font-size: 32px;
+}
+
+.eval-card__comment {
+  margin-top: 20px;
+  line-height: 1.5em;
+}
+
 /* mypage.blade.php */
 .mypage__top {
   font-size: 28px;
@@ -626,7 +693,7 @@ body {
 }
 @media screen and (max-width: 1150px) {
   .mypage__top {
-    margin: 30px 50px 30px;
+    margin: 30px 50px;
   }
 }
 

@@ -24,7 +24,7 @@ class EvalRequest extends FormRequest
     public function rules()
     {
         return [
-            'booking_id' => 'required|integer',
+            'booking_id' => 'required|integer|unique:evaluations',
             'star' => 'required|integer|max:5|min:1',
         ];
     }

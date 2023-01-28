@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\EvalController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\MailController;
@@ -28,8 +29,10 @@ Route::post('/like', [LikeController::class, 'create']);
 Route::post('/unlike', [LikeController::class, 'delete']);
 
 Route::get('/mypage', [HomeController::class, 'index']);
-Route::get('/mypage/evaluate', [HomeController::class, 'evaluate']);
-Route::post('/mypage/evaluate', [HomeController::class, 'create']);
+
+Route::get('/evaluate', [EvalController::class, 'evaluate']);
+Route::post('/evaluate', [EvalController::class, 'create']);
+Route::get('/evaluate/index', [EvalController::class, 'index']);
 
 Route::post('/book', [BookingController::class, 'create']);
 Route::post('/book/cancel', [BookingController::class, 'cancel']);

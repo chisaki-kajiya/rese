@@ -15,7 +15,7 @@ class CreateEvaluationsTable extends Migration
     {
         Schema::create('evaluations', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('booking_id')->nullable(false);
+            $table->bigInteger('booking_id')->nullable(false)->unique();
             $table->integer('star')->nullable(false);
             $table->string('comment', 512)->nullable(true);
             $table->timestamp('created_at')->useCurrent()->nullable();
