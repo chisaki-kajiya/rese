@@ -979,3 +979,11 @@ body {
   display: block;
   margin-bottom: 20px;
 }
+
+/* check_qrcode.blade.php */
+.qrcode-table {
+  margin: 0 50px 50px;
+  text-align: left;
+  border-collapse: separate;
+  border-spacing: 20px 10px;
+}

@@ -48,5 +48,6 @@ Route::post('/rep/update', [RepController::class, 'update']);
 
 Route::get('/rep/mail', [MailController::class, 'index']);
 Route::post('/rep/mail', [MailController::class, 'send']);
+Route::get('/rep/qrcode', [MailController::class, 'qrcode']);
 
 require __DIR__.'/auth.php';

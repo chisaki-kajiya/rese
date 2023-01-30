@@ -106,7 +106,7 @@
       </tr>
       @foreach($bookings as $booking)
       <tr>
-        <td>{{$booking->getStart()}}</td>
+        <td>{{date('Y/m/d H:i', strtotime($booking->start))}}</td>
         <td>{{$booking->name}}</td>
         <td>{{$booking->number}}</td>
         <td>

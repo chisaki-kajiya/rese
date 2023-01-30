@@ -29,7 +29,6 @@
 
 @section('content')
 <div class="shop-card-wrapper">
-
   @if( $shops->isEmpty() )
   <p class="request-text">該当するレストランがありません</p>
   @else

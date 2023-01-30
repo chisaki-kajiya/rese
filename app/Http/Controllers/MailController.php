@@ -24,7 +24,7 @@ class MailController extends Controller
             ->first();
 
         return view('mail', [
-            'booking' => $booking
+            'booking' => $booking,
         ]);
     }
 
@@ -37,9 +37,11 @@ class MailController extends Controller
             ->first();
         $email = $user->email;
         $text = $request->text;
+        $url = '/rep/qrcode?booking_id=' . $request->id;
 
-        Mail::send(['text' => 'mail.booking_confirm'], [
+        Mail::send('mail.booking_confirm', [
             'text' => $text,
+            'url' => $url
         ], function($message) use ($email) {
             $message
                 ->to($email)
@@ -47,5 +49,25 @@ class MailController extends Controller
         });
         
         return redirect ('/rep')->with('flash_message', 'メールを送信しました');
+    }
+
+    public function qrcode(Request $request)
+    {
+        $booking = Booking::query()
+            ->select(
+                'bookings.id as id',
+                'users.name as user_name',
+                'shops.name as shop_name',
+                'bookings.number as number',
+                'bookings.start as start',
+            )
+            ->join('users', 'bookings.user_id', '=', 'users.id')
+            ->join('shops', 'bookings.shop_id', '=', 'shops.id')
+            ->where('bookings.id', $request->booking_id)
+            ->first();
+
+        return view('check_qrcode', [
+            'booking' => $booking
+        ]);
     }
 }

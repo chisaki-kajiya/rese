@@ -37,7 +37,7 @@ class RepController extends Controller
 
         $bookings = "";
         if($shop){
-            $today = date('Ymd', strtotime('now')) . 000000;
+            $today = date('Ymd', strtotime('now'));
             $bookings = Booking::orderBy('start', 'asc')
                 ->select(
                     'bookings.id as id',
@@ -47,7 +47,7 @@ class RepController extends Controller
                 )
                 ->join('users', 'bookings.user_id', '=', 'users.id')
                 ->where('bookings.shop_id', $shop->id)
-                ->where('bookings.start', '<', $today)
+                ->where('bookings.start', '>', $today)
                 ->get();
         }
 
