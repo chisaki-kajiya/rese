@@ -8,5 +8,6 @@
 店名 : {{$booking->shop_name}}
 日時 : {{$booking->getStart()}}
 人数 : {{$booking->number}}名
+コース : {{$booking->course_name}}
 
 どうぞお気をつけてお越しくださいませ。

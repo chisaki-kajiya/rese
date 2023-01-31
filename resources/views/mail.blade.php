@@ -36,9 +36,14 @@
 店名 : ' . $booking->shop_name . '
 日時 : ' . date('Y/m/d H:i', strtotime($booking->start)). '
 人数 : ' . $booking->number . '人
+コース : ' . $booking->course_name . '
 
+添付のQRコードよりご予約内容の確認をさせていただきます。
 当日はどうぞお気をつけてお越しくださいませ。'
 , ['rows' => '15'])}}
+  <div class="mt20">
+    {!! QrCode::size(200)->generate($url) !!}
+  </div>
   {{ Form::submit('メールを送る', ['class' => 'blue-btn block mt20'])}}
   {{ Form::close() }}
 </div>

@@ -33,6 +33,16 @@
           <th>Date&Time</th>
           <td>{{ date('Y/m/d H:i', strtotime($history->start)) }}</td>
         </tr>
+        <tr>
+          <th>Course</th>
+          <td>
+            @if($history->course_name == null)
+            席のみ
+            @else
+            {{ $history->course_name }}(¥{{ $history->course_price }})
+            @endif
+          </td>
+        </tr>
       </table>
 
       <div class="eval__star-wrapper">

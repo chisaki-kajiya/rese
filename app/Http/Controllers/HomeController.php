@@ -19,10 +19,13 @@ class HomeController extends Controller
                 'bookings.id as id', 
                 'shops.name as shop_name',
                 'bookings.start as start',
-                'bookings.number as number'
+                'bookings.number as number',
+                'courses.name as course_name',
+                'courses.price as course_price'
             )
             ->join('users', 'bookings.user_id', '=', 'users.id')
             ->join('shops', 'bookings.shop_id', '=', 'shops.id')
+            ->leftjoin('courses', 'bookings.course_id', '=', 'courses.id')
             ->where('bookings.user_id', $id)
             ->where('bookings.start', '>', date('YmdHis', strtotime('now')))
             ->orderBy('bookings.start')
@@ -34,10 +37,13 @@ class HomeController extends Controller
                 'shops.name as shop_name',
                 'bookings.start as start',
                 'bookings.number as number',
-                'evaluations.id as eval'
+                'courses.name as course_name',
+                'courses.price as course_price',
+                'evaluations.id as eval',
             )
             ->join('users', 'bookings.user_id', '=', 'users.id')
             ->join('shops', 'bookings.shop_id', '=', 'shops.id')
+            ->leftjoin('courses', 'bookings.course_id', '=', 'courses.id')
             ->leftJoin('evaluations', 'bookings.id', '=', 'evaluations.booking_id')
             ->where('bookings.user_id', $id)
             ->where('bookings.start', '<', date('YmdHis', strtotime('now')))

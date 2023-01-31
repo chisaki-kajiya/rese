@@ -43,9 +43,12 @@ class RepController extends Controller
                     'bookings.id as id',
                     'bookings.start as start',
                     'bookings.number as number',
-                    'users.name as name'
+                    'users.name as name',
+                    'courses.name as course_name',
+                    'courses.price as course_price'
                 )
                 ->join('users', 'bookings.user_id', '=', 'users.id')
+                ->leftjoin('courses', 'bookings.course_id', '=', 'courses.id')
                 ->where('bookings.shop_id', $shop->id)
                 ->where('bookings.start', '>', $today)
                 ->get();

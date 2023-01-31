@@ -20,8 +20,11 @@ class EvalController extends Controller
                 'shops.name as shop_name',
                 'bookings.start as start',
                 'bookings.number as number',
+                'courses.name as course_name',
+                'courses.price as course_price'
             )
             ->join('shops', 'bookings.shop_id', '=', 'shops.id')
+            ->leftjoin('courses', 'bookings.course_id', '=', 'courses.id')
             ->where('bookings.id', $request->booking_id)
             ->first();
         return view('evaluation', [

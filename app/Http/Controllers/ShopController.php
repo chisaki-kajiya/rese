@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Area;
+use App\Models\Course;
 use App\Models\Evaluation;
 use App\Models\Genre;
 use App\Models\Shop;
@@ -103,6 +104,8 @@ class ShopController extends Controller
             ->where('bookings.shop_id', $request->id)
             ->count();
 
+        $courses = Course::where('shop_id', $request->id)->get();
+
         $user['email_verified_at'] = '';
         if (Auth::check()) {
             $user = Auth::user();
@@ -112,7 +115,8 @@ class ShopController extends Controller
             'shop' => $shop,
             'star' => $star,
             'user' => $user,
-            'evals' => $evals
+            'evals' => $evals,
+            'courses' => $courses,
         ]);
     }
 }

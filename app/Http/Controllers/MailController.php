@@ -16,15 +16,23 @@ class MailController extends Controller
                 'bookings.start as start',
                 'bookings.number as number',
                 'users.name as guest_name',
-                'shops.name as shop_name'
+                'shops.name as shop_name',
+                'courses.name as course_name',
             )
             ->join('users', 'bookings.user_id', '=', 'users.id')
             ->join('shops', 'bookings.shop_id', '=', 'shops.id')
+            ->leftjoin('courses', 'bookings.course_id', '=', 'courses.id')
             ->where('bookings.id', $request->id)
             ->first();
+        if($booking->course_name == null) {
+            $booking['course_name'] = '席のみ';
+        };
+
+        $url = '/rep/qrcode?booking_id=' . $booking->id;
 
         return view('mail', [
             'booking' => $booking,
+            'url' => $url
         ]);
     }
 
@@ -60,9 +68,11 @@ class MailController extends Controller
                 'shops.name as shop_name',
                 'bookings.number as number',
                 'bookings.start as start',
+                'courses.name as course_name'
             )
             ->join('users', 'bookings.user_id', '=', 'users.id')
             ->join('shops', 'bookings.shop_id', '=', 'shops.id')
+            ->leftjoin('courses', 'bookings.course_id', '=', 'courses.id')
             ->where('bookings.id', $request->booking_id)
             ->first();
 

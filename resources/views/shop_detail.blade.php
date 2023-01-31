@@ -56,14 +56,24 @@
       <div class="booking-form">
         <h2 class="booking-form__title">予約</h2>
         <input type="hidden" value="{{$shop->id}}" name="shop_id">
+
         <input type="date" value="<?php echo date('Y-m-d', strtotime('+1 day')); ?>" class="booking-form__input" id="bookingDate" name="date">
+
         <select type="time" class="booking-form__input w95p" id="bookingTime" name="time">
           @for ($i = 17; $i < 22; $i+=1) <option value="{{ $i }}:00">{{ $i }}:00</option>
             @endfor
         </select>
+
         <select type="number" class="booking-form__input w95p" id="bookingNumber" name="number">
           @for ($i = 1; $i < 10; $i+=1) <option value="{{ $i }}">{{ $i }}人</option>
             @endfor
+        </select>
+
+        <select name="course_id" id="booking_course" class="booking-form__input w95p">
+          <option value=0 selected>席のみのご予約</option>
+          @foreach($courses as $course)
+          <option value="{{ $course->id }}">{{ $course->name}}(¥{{$course->price}})</option>
+          @endforeach
         </select>
 
         <div class="booking-confirmation__wrapper">
@@ -83,6 +93,10 @@
             <tr>
               <th class="booking-cfm__item-title">Number</th>
               <td id="cfmNumber"></td>
+            </tr>
+            <tr>
+              <th class="booking-cfm__item-title">Course</th>
+              <td id="cfm_course">席のみのご予約</td>
             </tr>
           </table>
         </div>

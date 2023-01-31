@@ -103,12 +103,16 @@
         <th>日程</th>
         <th>名前</th>
         <th>人数</th>
+        <th>コース</th>
+        <th>価格</th>
       </tr>
       @foreach($bookings as $booking)
       <tr>
         <td>{{date('Y/m/d H:i', strtotime($booking->start))}}</td>
         <td>{{$booking->name}}</td>
         <td>{{$booking->number}}</td>
+        <td>{{$booking->course_name}}</td>
+        <td>{{$booking->course_price}}</td>
         <td>
           {{ Form::open(['url' => '/rep/mail', 'method' => 'GET']) }}
           {{Form::hidden('id', $booking->id)}}

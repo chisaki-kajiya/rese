@@ -16,7 +16,7 @@
         </tr>
         <tr>
           <th>Name</th>
-          <td>{{$booking->user_name}}</td>
+          <td>{{$booking->user_name}}様</td>
         </tr>
         <tr>
           <th>Number</th>
@@ -29,6 +29,16 @@
         <tr>
           <th>Time</th>
           <td>{{date('H:i', strtotime($booking->start))}}</td>
+        </tr>
+        <tr>
+          <th>Course</th>
+          <td>
+            @if($booking->course_name == null)
+            席のみ
+            @else
+            {{$booking->course_name}}
+            @endif
+          </td>
         </tr>
       </table>
       <a class="blue-btn center mb50" href="/">ホームへ戻る</a>

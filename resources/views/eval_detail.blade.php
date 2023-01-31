@@ -12,6 +12,10 @@
   </div>
 
   <p class="eval-detail__title-bottom">#{{ $shop->area_name }} #{{ $shop->genre_name }}</p>
+  @if($evals->isEmpty())
+  <p class="request-text">評価がまだありません</p>
+  @endif
+
   <div class="eval-card__wrapper">
     @foreach($evals as $eval)
     <div class="eval-card">

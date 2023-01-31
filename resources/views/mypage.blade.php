@@ -31,7 +31,8 @@
     @elseif( $bookings->isEmpty() )
     <p class="request-text">予約がありません</p>
 
-    @else
+    @endif
+
     @foreach($bookings as $booking)
     <div class="mypage-booking-card">
       <div class="mypage-booking__card-top">
@@ -98,6 +99,17 @@
               </td>
             </tr>
 
+            <tr>
+              <th class="mypage-booking__content-head">Course</th>
+              <td>
+                @if( $booking->course_name == null)
+                席のみ
+                @else
+                {{$booking->course_name}}(¥{{$booking->course_price}})
+                @endif
+              </td>
+            </tr>
+
           </table>
         </form>
 
@@ -105,7 +117,6 @@
       <button class="mypage-booking__change-btn" form="change">変更する</button>
     </div>
     @endforeach
-    @endif
 
     <h3 class="mypage__content-title">予約履歴</h3>
 
@@ -129,6 +140,16 @@
           <tr>
             <th>Date & Time</th>
             <td>{{ date('Y/m/d H:i', strtotime($history->start)) }}</td>
+          </tr>
+          <tr>
+            <th>Course</th>
+            <td>
+              @if($history->course_name == null)
+              席のみ
+              @else
+              {{ $history->course_name }}(¥{{ $history->course_price }})
+              @endif
+            </td>
           </tr>
         </table>
 

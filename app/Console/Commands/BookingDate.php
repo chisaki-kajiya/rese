@@ -48,14 +48,20 @@ class BookingDate extends Command
                 'bookings.number as number',
                 'users.name as guest_name',
                 'users.email as email',
-                'shops.name as shop_name'
+                'shops.name as shop_name',
+                'courses.name as course_name'
             )
             ->join('users', 'bookings.user_id', '=', 'users.id')
             ->join('shops', 'bookings.shop_id', '=', 'shops.id')
+            ->leftjoin('courses', 'bookings.course_id', '=', 'courses.id')
             ->whereBetween('bookings.start', [$today, $tomorrow])
             ->get();
 
             foreach ($bookings as $booking) {
+                if ($booking->course_name == null) {
+                    $booking['course_name'] = '席のみ';
+                };
+                
                 Mail::send(['text' => 'mail.booking_date'], [
                     'booking' => $booking,
                 ], function ($message) use($booking) {
