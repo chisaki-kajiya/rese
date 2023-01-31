@@ -49,11 +49,11 @@
 
 ![スクリーンショット 2023-01-31 22 49 08](https://user-images.githubusercontent.com/109803113/215778068-3d9d5453-2fc3-412b-b4fd-a36871abd2c2.png)
 
--courses
+- courses
 
 ![スクリーンショット 2023-01-31 22 50 39](https://user-images.githubusercontent.com/109803113/215778436-c5b63f2c-81be-4a84-8428-e09aecac4d7d.png)
 
--evaluations
+- evaluations
 
 ![スクリーンショット 2023-01-31 22 51 25](https://user-images.githubusercontent.com/109803113/215778588-c96cc20f-1ac8-4350-b3d9-b573874c93ba.png)
 
