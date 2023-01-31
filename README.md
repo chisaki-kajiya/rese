@@ -42,26 +42,43 @@
 
 ## テーブル設計
 - areas
+
 ![スクリーンショット 2023-01-06 13 36 51](https://user-images.githubusercontent.com/109803113/210931274-b6260dde-1fc1-4f45-be03-d45396172780.png)
 
 - bookings
+
 ![スクリーンショット 2023-01-31 22 49 08](https://user-images.githubusercontent.com/109803113/215778068-3d9d5453-2fc3-412b-b4fd-a36871abd2c2.png)
 
+-courses
+
+![スクリーンショット 2023-01-31 22 50 39](https://user-images.githubusercontent.com/109803113/215778436-c5b63f2c-81be-4a84-8428-e09aecac4d7d.png)
+
+-evaluations
+
+![スクリーンショット 2023-01-31 22 51 25](https://user-images.githubusercontent.com/109803113/215778588-c96cc20f-1ac8-4350-b3d9-b573874c93ba.png)
 
 - genres
+
 ![スクリーンショット 2023-01-06 13 38 21](https://user-images.githubusercontent.com/109803113/210931335-4104d396-0cdb-4aa7-bfeb-edf027c3e60c.png)
 
 - likes
+
 ![スクリーンショット 2023-01-06 13 38 39](https://user-images.githubusercontent.com/109803113/210931363-9a6e3ab1-a475-49bc-b3c0-3a5957bfdeab.png)
 
+- representatives
+
+![スクリーンショット 2023-01-31 22 52 19](https://user-images.githubusercontent.com/109803113/215778885-0d579817-d215-43ef-854f-708a5903981e.png)
+
 - shops
+
 ![スクリーンショット 2023-01-06 13 38 59](https://user-images.githubusercontent.com/109803113/210931382-24eb3f4a-03df-43ed-8de9-12343df6015c.png)
 
 - users
+
 ![スクリーンショット 2023-01-06 13 39 12](https://user-images.githubusercontent.com/109803113/210931400-ad254693-a84f-44ca-bccb-14c9ff4b0bf2.png)
 
 ## ER図
-![rese dio](https://user-images.githubusercontent.com/109803113/210930598-7b72c9c0-a418-45d5-b103-31db11be1909.png)
+![rese dio](https://user-images.githubusercontent.com/109803113/215778932-af385e7a-1eb6-40cb-a4d5-4758d8f9b448.png)
 
 ## 環境構築
 - Laravel 8.83.27
