@@ -71,7 +71,7 @@
 
 - shops
 
-![スクリーンショット 2023-01-06 13 38 59](https://user-images.githubusercontent.com/109803113/210931382-24eb3f4a-03df-43ed-8de9-12343df6015c.png)
+![スクリーンショット 2023-02-01 0 01 41](https://user-images.githubusercontent.com/109803113/215796446-f8f3a64c-47a7-4368-bfa7-e33ba32633fb.png)
 
 - users
 
