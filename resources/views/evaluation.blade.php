@@ -6,7 +6,7 @@
 <div class="eval-wrapper">
   <div class="w48p w100p1150 center">
     @if (count($errors) > 0)
-    <div class="booking-error">
+    <div class="error">
       <h3 class="red">予約エラー</h3>
       @foreach ($errors->all() as $error)
       <p class="red mt10">{{$error}}</p>

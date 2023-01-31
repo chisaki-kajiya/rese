@@ -11,7 +11,7 @@
     <h3 class="mypage__content-title">予約状況</h3>
 
     @if (count($errors) > 0)
-    <div class="booking-error">
+    <div class="error">
       <h3 class="red">予約変更エラー</h3>
       @foreach ($errors->all() as $error)
       <p class="red mt10">{{$error}}</p>
@@ -48,7 +48,7 @@
           <form action="/book/cancel" method="POST">
             @csrf
             <input type="hidden" name="id" value="{{ $booking->id }}">
-            <button class="mypage-booking__icon">
+            <button class="mypage-booking__icon pointer">
               <i class="fa fa-times-circle-o" aria-hidden="true"></i>
             </button>
           </form>
@@ -128,7 +128,7 @@
     <div class="mypage-booking-card">
       <div class="mypage-history__card-top">
 
-        <table class="mypage-history__booking-info-table">
+        <table class="basic-table">
           <tr>
             <th>Shop</th>
             <td>{{ $history->shop_name }}</td>

@@ -3,6 +3,23 @@ body {
 }
 
 /* common elements*/
+.header-right {
+  color: #305dff;
+  text-decoration: none;
+  font-size: 20px;
+  border: #305dff 1px solid;
+  font-weight: normal;
+  border-radius: 5px;
+  padding: 9px;
+  cursor: pointer;
+}
+
+.basic-table {
+  border-collapse: separate;
+  border-spacing: 20px 10px;
+  text-align: left;
+}
+
 .blue-btn {
   background-color: #305dff;
   border: none;
@@ -29,12 +46,11 @@ body {
   display: inline-block;
 }
 
-.booking-error {
+.error {
   margin-bottom: 20px;
-  background-color: #ffffff;
+  background-color: #f6e4e4;
   padding: 20px;
   border-radius: 5px;
-  color: #ff0000;
   display: inline-block;
 }
 
@@ -88,6 +104,7 @@ body {
   background-color: #ffffff;
   border: none;
   font-size: 40px;
+  cursor: pointer;
 }
 
 .shop-card__like--red {
@@ -95,6 +112,7 @@ body {
   background-color: #ffffff;
   border: none;
   font-size: 40px;
+  cursor: pointer;
 }
 
 /* common colors, sizes, positions */
@@ -104,6 +122,10 @@ body {
 
 .gray {
   color: #4b4b4b;
+}
+
+.pointer {
+  cursor: pointer;
 }
 
 .h18 {
@@ -414,6 +436,7 @@ body {
 
 .box__contents-text--btm{
   margin: 0 20px 50px;
+  cursor: pointer;
 }
 
 /* shop_all.blade.php */
@@ -444,6 +467,7 @@ body {
   padding-right: 20px;
   color: #4b4b4b;
   width: 45%;
+  cursor: pointer;
 }
 @media screen and (max-width: 1150px) {
   .search-box__select {
@@ -570,6 +594,7 @@ body {
   border: none;
   text-decoration: underline;
   margin-left: -10px;
+  cursor: pointer;
 }
 
 .detail__shop-img {
@@ -603,6 +628,7 @@ body {
   margin-bottom: 20px;
   border: none;
   padding: 0 0 0 5px;
+  cursor: pointer;
 }
 
 .booking-confirmation__wrapper {
@@ -632,6 +658,7 @@ body {
   width: 100%;
   padding: 20px 30px;
   font-size: 20px;
+  cursor: pointer;
 }
 
 .booking-form__btn:hover {
@@ -648,11 +675,6 @@ body {
   .eval-detail__container {
     margin: 30px 50px;
   }
-}
-
-.eval-detail__title-top {
-  font-size: 32px;
-  margin-left: 10px;
 }
 
 .eval-detail__title-bottom {
@@ -764,6 +786,7 @@ body {
   border-radius: 5px;
   font-size: 16px;
   padding: 5px;
+  cursor: pointer;
 }
 
 .mypage-booking__change-btn {
@@ -773,6 +796,7 @@ body {
   color: #ffffff;
   width: 100%;
   height: 50px;
+  cursor: pointer;
 }
 
 .mypage-booking__change-btn:hover {
@@ -788,12 +812,6 @@ body {
 
 .mypage-history__card-text {
   font-size: 18px;
-}
-
-.mypage-history__booking-info-table {
-  border-collapse: separate;
-  border-spacing: 20px 10px;
-  text-align: left;
 }
 
 .mypage-history__card-bottom--done,
@@ -813,6 +831,7 @@ body {
 
 .mypage-history__card-bottom--hover {
   background-color: #b1bcf0;
+  cursor: pointer;
 }
 
 .mypage-history__card-bottom--hover:hover {
@@ -851,6 +870,7 @@ body {
 
 .eval__star {
   margin-right: 20px;
+  cursor: pointer;
 }
 
 #star1:hover,
@@ -894,36 +914,9 @@ body {
   margin: 30px 150px;
 }
 
-.admin__header-right {
-  color: #305dff;
-  text-decoration: none;
-  font-size: 20px;
-  border: #305dff 1px solid;
-  font-weight: normal;
-  border-radius: 5px;
-  padding: 9px;
-}
-
 .admin__content-title {
   margin-bottom: 10px;
   font-size: 20px;
-}
-
-.admin__table {
-  border-collapse: separate;
-  border-spacing: 10px 10px;
-}
-
-.admin__table-head {
-  text-align: left;
-  font-weight: normal;
-}
-
-.admin__error {
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 5px;
-  display: inline-block;
 }
 
 /* rep.blade.php */
@@ -966,18 +959,12 @@ body {
   border-bottom: #000000 1px solid;
 }
 
-.rep-booking__table {
-  border-collapse: separate;
-  border-spacing: 20px 10px;
-  text-align: left;
-}
-
 /* rep_change.blade.php */
 .rep-change__image {
   width: 40%;
   object-fit: cover;
   display: block;
-  margin-bottom: 20px;
+  margin: 20px 0;
 }
 
 /* check_qrcode.blade.php */

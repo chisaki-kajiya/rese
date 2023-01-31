@@ -8,7 +8,7 @@
     <a href="#" class="detail__back-btn" onclick="history.back()">
       <i class="fa fa-angle-left" aria-hidden="true"></i>
     </a>
-    <h2 class="eval-detail__title-top">{{ $shop->name }}</h2>
+    <h2 class="detail__shop-name">{{ $shop->name }}</h2>
   </div>
 
   <p class="eval-detail__title-bottom">#{{ $shop->area_name }} #{{ $shop->genre_name }}</p>

@@ -3,7 +3,7 @@
 @section('title', '店舗責任者ページ')
 
 @section('header_right')
-<a href="/rep" class="admin__header-right">店舗責任者ページ</a>
+<a href="/rep" class="header-right">店舗責任者ページ</a>
 @endsection
 
 @section('content')
@@ -51,9 +51,9 @@
     </tr>
   </table>
   <img src="{{ asset($shop->image_path) }}" alt="img" class="rep-change__image" id='image'>
-  {{Form::submit('変更')}}
+  {{Form::submit('変更', ['class' => 'pointer'])}}
   {{Form::close()}}
-  <a href="/rep" class="block mt20">もどる</a>
+  <a href="/rep" class="block mt20 pointer">もどる</a>
 </div>
 @endsection
 

@@ -10,10 +10,4 @@ class Genre extends Model
     use HasFactory;
 
     protected $guarded = array('id');
-
-    public function shops()
-    {
-        return $this->hasMany('App\Models\Shop');
-    }
-
 }

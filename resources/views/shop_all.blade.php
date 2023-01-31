@@ -6,11 +6,11 @@
 {{ Form::open(['url' => '/search', 'method' => 'GET']) }}
 <div class="search-box box">
   <div class="search-box__row">
-    {{ Form::select('area_id', $areas, $area ?? null, ['class'=>'search-box__select', 'placeholder'=>'All area', 'id'=>'searchArea']) }}
+    {{ Form::select('area_id', $areas, $area ?? null, ['class'=>'search-box__select', 'placeholder'=>'All area', 'id'=>'search_area']) }}
 
     <span class="gray-bar--left"></span>
 
-    {{ Form::select('genre_id', $genres, $genre ?? null, ['class'=>'search-box__select', 'placeholder'=>'All genre', 'id'=>'searchGenre']) }}
+    {{ Form::select('genre_id', $genres, $genre ?? null, ['class'=>'search-box__select', 'placeholder'=>'All genre', 'id'=>'search_genre']) }}
 
     <span class="gray-bar--right"></span>
   </div>
@@ -18,7 +18,7 @@
   <div class="search-box__row">
     <i class="fa fa-search search-box__search-icon" aria-hidden="true"></i>
 
-    {{ Form::text('name', $search ?? 'Search ...', ['class'=>'search-box__input', 'onfocus' => 'this.value = "";', 'id'=>'searchName'])}}
+    {{ Form::text('name', $search ?? 'Search ...', ['class'=>'search-box__input', 'onfocus' => 'this.value = "";', 'id'=>'search_name'])}}
 
     {{ Form::submit('検索', ['class' => 'blue-btn shop-search-btn'])}}
   </div>

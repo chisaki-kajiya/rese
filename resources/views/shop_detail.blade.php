@@ -42,7 +42,7 @@
 
   <div class="w48p w100p1150">
     @if (count($errors) > 0)
-    <div class="booking-error">
+    <div class="error">
       <h3 class="red">予約エラー</h3>
       @foreach ($errors->all() as $error)
       <p class="red mt10">{{$error}}</p>
@@ -57,14 +57,14 @@
         <h2 class="booking-form__title">予約</h2>
         <input type="hidden" value="{{$shop->id}}" name="shop_id">
 
-        <input type="date" value="<?php echo date('Y-m-d', strtotime('+1 day')); ?>" class="booking-form__input" id="bookingDate" name="date">
+        <input type="date" value="<?php echo date('Y-m-d', strtotime('+1 day')); ?>" class="booking-form__input" id="booking_date" name="date">
 
-        <select type="time" class="booking-form__input w95p" id="bookingTime" name="time">
+        <select type="time" class="booking-form__input w95p" id="booking_time" name="time">
           @for ($i = 17; $i < 22; $i+=1) <option value="{{ $i }}:00">{{ $i }}:00</option>
             @endfor
         </select>
 
-        <select type="number" class="booking-form__input w95p" id="bookingNumber" name="number">
+        <select type="number" class="booking-form__input w95p" id="booking_number" name="number">
           @for ($i = 1; $i < 10; $i+=1) <option value="{{ $i }}">{{ $i }}人</option>
             @endfor
         </select>
@@ -84,15 +84,15 @@
             </tr>
             <tr>
               <th class="booking-cfm__item-title">Date</th>
-              <td id="cfmDate"></td>
+              <td id="cfm_date">{{date('Y/m/d', strtotime(now())) }}</td>
             </tr>
             <tr>
               <th class="booking-cfm__item-title">Time</th>
-              <td id="cfmTime"></td>
+              <td id="cfm_time">17:00</td>
             </tr>
             <tr>
               <th class="booking-cfm__item-title">Number</th>
-              <td id="cfmNumber"></td>
+              <td id="cfm_number">1人</td>
             </tr>
             <tr>
               <th class="booking-cfm__item-title">Course</th>

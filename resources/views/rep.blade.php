@@ -3,7 +3,7 @@
 @section('title', '店舗責任者ページ')
 
 @section('header_right')
-<a href="/rep" class="admin__header-right">店舗責任者ページ</a>
+<a href="/rep" class="header-right">店舗責任者ページ</a>
 @endsection
 
 @section('content')
@@ -21,7 +21,7 @@
 
     <h2>新規登録</h2>
     @if (count($errors) > 0)
-    <div class="admin__error mt10">
+    <div class="error mt10">
       <h3 class="red">登録エラー</h3>
       @foreach ($errors->all() as $error)
       <p class="red mt10">{{$error}}</p>
@@ -98,7 +98,7 @@
   @elseif ( empty($shop) == false )
   <div class="rep-booking__container">
     <h2 class="rep-booking__title">予約情報</h2>
-    <table class="rep-booking__table">
+    <table class="basic-table">
       <tr>
         <th>日程</th>
         <th>名前</th>

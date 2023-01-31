@@ -65,10 +65,20 @@ class RepController extends Controller
 
     public function create(ShopCreateRequest $request)
     {
-        $shop = Shop::create($request->all());
+        $shop = $request->all();
+        $image = $request->file('image');
+        if (isset($image)) {
+            $image_name = 'shop_id' . $request->id;
+            $image->storeAs('public/shop', $image_name);
+            $shop['image_path'] = 'storage/shop/' . $image_name;
+        }
+        unset($shop['_token'], $shop['image']);
+        $shop = Shop::create($shop);
+
         $representative['user_id'] = Auth::id();
         $representative['shop_id'] = $shop->id;
         Representative::create($representative);
+
         return redirect('/rep');
     }
 
@@ -102,7 +112,7 @@ class RepController extends Controller
         $shop = $request->all();
         $image = $request->file('image');
         if(isset($image)) {
-            $image_name = $image->getClientOriginalName();
+            $image_name = 'shop_id' . $request->id;
             $image->storeAs('public/shop', $image_name);
             $shop['image_path'] = 'storage/shop/' . $image_name;
         }

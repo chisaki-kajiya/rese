@@ -3,7 +3,7 @@
 @section('title', '店舗責任者ページ')
 
 @section('header_right')
-<a href="/rep" class="admin__header-right">店舗責任者ページ</a>
+<a href="/rep" class="header-right">店舗責任者ページ</a>
 @endsection
 
 @section('content')
@@ -17,13 +17,14 @@
       <th>日程</th>
     </tr>
     <tr>
-      <td id="shopName">{{$booking->shop_name}}</td>
-      <td id="guestName">{{$booking->guest_name}}</td>
-      <td id="number">{{$booking->number}}</td>
-      <td id="start">{{date('Y/m/d H:i', strtotime($booking->start))}}</td>
+      <td>{{$booking->shop_name}}</td>
+      <td>{{$booking->guest_name}}</td>
+      <td>{{$booking->number}}</td>
+      <td>{{date('Y/m/d H:i', strtotime($booking->start))}}</td>
     </tr>
   </table>
   {{ Form::open(['url' => '/rep/mail', 'method' => 'POST']) }}
+  {{ Form::token() }}
   {{Form::hidden('id', $booking->id)}}
   {{Form::textarea('text',
     $booking->guest_name.'さま

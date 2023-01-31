@@ -10,5 +10,4 @@ class Evaluation extends Model
     use HasFactory;
 
     protected $guarded = array('id');
-
 }

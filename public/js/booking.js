@@ -1,30 +1,23 @@
 /* booking-form__confirmation */
 /* date */
-const bookingDate = document.getElementById('bookingDate');
-const cfmDate = document.getElementById('cfmDate');
-var date = new Date();
-
-cfmDate.innerText = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + (date.getDate() + 1);
+const bookingDate = document.getElementById('booking_date');
+const cfmDate = document.getElementById('cfm_date');
 
 bookingDate.addEventListener('change', () => {
   cfmDate.innerText = bookingDate.value
 });
 
 /* time */
-const bookingTime = document.getElementById('bookingTime');
-const cfmTime = document.getElementById('cfmTime');
-
-cfmTime.innerText = '17:00';
+const bookingTime = document.getElementById('booking_time');
+const cfmTime = document.getElementById('cfm_time');
 
 bookingTime.addEventListener('change', () => {
   cfmTime.innerText = bookingTime.value
 });
 
 /* number */
-const bookingNumber = document.getElementById('bookingNumber');
-const cfmNumber = document.getElementById('cfmNumber');
-
-cfmNumber.innerText = '1人';
+const bookingNumber = document.getElementById('booking_number');
+const cfmNumber = document.getElementById('cfm_number');
 
 bookingNumber.addEventListener('change', () => {
   cfmNumber.innerText = bookingNumber.value + '人'

@@ -26,30 +26,32 @@ Route::get('/', [ShopController::class, 'index']);
 Route::get('/search', [ShopController::class, 'search']);
 Route::get('/detail', [ShopController::class, 'detail']);
 
-Route::post('/like', [LikeController::class, 'create']);
-Route::post('/unlike', [LikeController::class, 'delete']);
+Route::group(['middleware' => 'auth'], function() {
+  Route::post('/like', [LikeController::class, 'create']);
+  Route::post('/unlike', [LikeController::class, 'delete']);
 
-Route::get('/mypage', [HomeController::class, 'index']);
+  Route::get('/mypage', [HomeController::class, 'index']);
 
-Route::get('/evaluate', [EvalController::class, 'evaluate']);
-Route::post('/evaluate', [EvalController::class, 'create']);
-Route::get('/evaluate/index', [EvalController::class, 'index']);
+  Route::get('/evaluate', [EvalController::class, 'evaluate']);
+  Route::post('/evaluate', [EvalController::class, 'create']);
+  Route::get('/evaluate/index', [EvalController::class, 'index']);
 
-Route::post('/book', [BookingController::class, 'create']);
-Route::post('/book/pay', [BookingController::class, 'pay']);
-Route::post('/book/cancel', [BookingController::class, 'cancel']);
-Route::post('/book/change', [BookingController::class, 'change']);
+  Route::post('/book', [BookingController::class, 'create']);
+  Route::post('/book/pay', [BookingController::class, 'pay']);
+  Route::post('/book/cancel', [BookingController::class, 'cancel']);
+  Route::post('/book/change', [BookingController::class, 'change']);
 
-Route::get('/admin', [AdminController::class, 'index']);
-Route::post('/admin/register', [AdminController::class, 'create']);
+  Route::get('/admin', [AdminController::class, 'index']);
+  Route::post('/admin/register', [AdminController::class, 'create']);
 
-Route::get('/rep', [RepController::class, 'index']);
-Route::post('/rep/create', [RepController::class, 'create']);
-Route::get('/rep/update', [RepController::class, 'change']);
-Route::post('/rep/update', [RepController::class, 'update']);
+  Route::get('/rep', [RepController::class, 'index']);
+  Route::post('/rep/create', [RepController::class, 'create']);
+  Route::get('/rep/update', [RepController::class, 'change']);
+  Route::post('/rep/update', [RepController::class, 'update']);
 
-Route::get('/rep/mail', [MailController::class, 'index']);
-Route::post('/rep/mail', [MailController::class, 'send']);
-Route::get('/rep/qrcode', [MailController::class, 'qrcode']);
+  Route::get('/rep/mail', [MailController::class, 'index']);
+  Route::post('/rep/mail', [MailController::class, 'send']);
+  Route::get('/rep/qrcode', [MailController::class, 'qrcode']);
+});
 
 require __DIR__.'/auth.php';
