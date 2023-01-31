@@ -8,6 +8,7 @@ use App\Http\Controllers\LikeController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\RepController;
 use App\Http\Controllers\ShopController;
+use App\Models\Booking;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,6 +36,7 @@ Route::post('/evaluate', [EvalController::class, 'create']);
 Route::get('/evaluate/index', [EvalController::class, 'index']);
 
 Route::post('/book', [BookingController::class, 'create']);
+Route::post('/book/pay', [BookingController::class, 'pay']);
 Route::post('/book/cancel', [BookingController::class, 'cancel']);
 Route::post('/book/change', [BookingController::class, 'change']);
 
