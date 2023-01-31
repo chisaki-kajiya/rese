@@ -45,7 +45,8 @@
 ![スクリーンショット 2023-01-06 13 36 51](https://user-images.githubusercontent.com/109803113/210931274-b6260dde-1fc1-4f45-be03-d45396172780.png)
 
 - bookings
-![スクリーンショット 2023-01-06 13 37 34](https://user-images.githubusercontent.com/109803113/210931309-8ccdf159-c2b6-4863-a2f7-07cb9a63f90f.png)
+![スクリーンショット 2023-01-31 22 49 08](https://user-images.githubusercontent.com/109803113/215778068-3d9d5453-2fc3-412b-b4fd-a36871abd2c2.png)
+
 
 - genres
 ![スクリーンショット 2023-01-06 13 38 21](https://user-images.githubusercontent.com/109803113/210931335-4104d396-0cdb-4aa7-bfeb-edf027c3e60c.png)
