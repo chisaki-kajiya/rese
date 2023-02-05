@@ -6,8 +6,8 @@ use App\Models\Area;
 use App\Models\Booking;
 use App\Models\Genre;
 use App\Models\Shop;
-use App\Http\Requests\ShopCreateRequest;
 use App\Http\Requests\ShopChangeRequest;
+use App\Http\Requests\ShopCreateRequest;
 use App\Models\Representative;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -66,17 +66,22 @@ class RepController extends Controller
     public function create(ShopCreateRequest $request)
     {
         $shop = $request->all();
-        $image = $request->file('image');
-        if (isset($image)) {
-            $image_name = 'shop_id' . $request->id;
-            $image->storeAs('public/shop', $image_name);
-            $shop['image_path'] = 'storage/shop/' . $image_name;
-        }
+        $shop['image_path'] = 'storage/shop/noimage.jpeg';
         unset($shop['_token'], $shop['image']);
         $shop = Shop::create($shop);
 
+        $image = $request->file('image');
+        $id = $shop->id;
+        $shop = $request->all();
+
+        $image_name = 'shop_id' . $id;
+        $image->storeAs('public/shop', $image_name);
+        $shop['image_path'] = 'storage/shop/' . $image_name;
+        unset($shop['_token'], $shop['image']);
+        Shop::where('id', $id)->update($shop);
+
         $representative['user_id'] = Auth::id();
-        $representative['shop_id'] = $shop->id;
+        $representative['shop_id'] = $id;
         Representative::create($representative);
 
         return redirect('/rep');
@@ -111,8 +116,9 @@ class RepController extends Controller
     {
         $shop = $request->all();
         $image = $request->file('image');
+        $id = $request->id;
         if(isset($image)) {
-            $image_name = 'shop_id' . $request->id;
+            $image_name = 'shop_id' . $id;
             $image->storeAs('public/shop', $image_name);
             $shop['image_path'] = 'storage/shop/' . $image_name;
         }

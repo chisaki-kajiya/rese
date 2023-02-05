@@ -31,7 +31,7 @@
 
     {{Form::open(['url' => '/rep/create', 'method' => 'POST', 'files' => true])}}
     {{Form::token()}}
-    <table class="admin__table">
+    <table class="basic-table">
       <tr>
         <th class="admin__table-head">店舗名</th>
         <td>{{Form::text('name', null)}}</td>
@@ -50,9 +50,11 @@
       </tr>
       <tr>
         <th class="admin__table-head">画像</th>
-        <td>{{Form::file('image')}}</td>
+        <td>{{Form::file('image', ['onchange' => 'showImage(this)'])}}</td>
       </tr>
     </table>
+    <p class="mt20">ショップ画像はjpg, jpeg, png, gifのうちいずれかの形式で、8MG以下のファイルを指定してください。</p>
+    <img src="storage/shop/noimage.jpeg" alt="img" class="rep-change__image" id="register-image">
     {{Form::submit('登録')}}
     {{Form::close()}}
 
@@ -125,4 +127,8 @@
   </div>
   @endif
 </div>
+@endsection
+
+@section('js')
+<script src="/js/register_image.js"></script>
 @endsection

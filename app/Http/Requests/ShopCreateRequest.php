@@ -28,7 +28,7 @@ class ShopCreateRequest extends FormRequest
             'area_id' => 'required|integer|exists:areas,id',
             'genre_id' => 'required|integer|exists:genres,id',
             'outline' => 'required|string|max:512',
-            'image' => 'required|image',
+            'image' => 'required|max:8000|mimes:jpg,jpeg,png,gif'
         ];
     }
 }

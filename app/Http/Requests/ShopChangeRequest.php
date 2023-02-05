@@ -28,6 +28,7 @@ class ShopChangeRequest extends FormRequest
             'area_id' => 'required|integer|exists:areas,id',
             'genre_id' => 'required|integer|exists:genres,id',
             'outline' => 'required|string|max:512',
+            'image' => 'max:8000|mimes:jpg,jpeg,png,gif'
         ];
     }
 }

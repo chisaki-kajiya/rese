@@ -1,5 +1,5 @@
 function showImage(input) {
-  const image = document.getElementById('change-image');
+  const image = document.getElementById('register-image');
 
   let file = input.files[0];
   console.log(file);
