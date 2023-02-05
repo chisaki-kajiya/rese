@@ -26,6 +26,8 @@ Route::get('/', [ShopController::class, 'index']);
 Route::get('/search', [ShopController::class, 'search']);
 Route::get('/detail', [ShopController::class, 'detail']);
 
+Route::get('/evaluate/index', [EvalController::class, 'index']);
+
 Route::group(['middleware' => 'auth'], function() {
   Route::post('/like', [LikeController::class, 'create']);
   Route::post('/unlike', [LikeController::class, 'delete']);
@@ -34,7 +36,6 @@ Route::group(['middleware' => 'auth'], function() {
 
   Route::get('/evaluate', [EvalController::class, 'evaluate']);
   Route::post('/evaluate', [EvalController::class, 'create']);
-  Route::get('/evaluate/index', [EvalController::class, 'index']);
 
   Route::post('/book', [BookingController::class, 'create']);
   Route::post('/book/pay', [BookingController::class, 'pay']);

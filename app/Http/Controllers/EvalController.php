@@ -21,15 +21,24 @@ class EvalController extends Controller
                 'bookings.start as start',
                 'bookings.number as number',
                 'courses.name as course_name',
-                'courses.price as course_price'
+                'courses.price as course_price',
+                'bookings.user_id as guest_id'
             )
             ->join('shops', 'bookings.shop_id', '=', 'shops.id')
+            ->join('users', 'bookings.user_id', '=', 'users.id')
             ->leftjoin('courses', 'bookings.course_id', '=', 'courses.id')
             ->where('bookings.id', $request->booking_id)
             ->first();
-        return view('evaluation', [
-            'history' => $history,
-        ]);
+
+        $id = Auth::id();
+        
+        if ($history->guest_id == $id) {
+            return view('evaluation', [
+                'history' => $history,
+            ]);
+        }
+
+        abort(403);
     }
 
     public function create(EvalRequest $request)
@@ -42,12 +51,9 @@ class EvalController extends Controller
         if ($booking['user_id'] == $user_id) {
             Evaluation::create($eval);
             return redirect('/mypage')->with('flash_message', '評価を送信しました');
-        } else {
-            return redirect('/mypage')->with([
-                'flash_message' => '評価を送信できませんでした',
-                'style' => 'flash-message--red'
-            ]);
-        }
+        } 
+
+        abort(403);
     }
 
     public function index(Request $request)

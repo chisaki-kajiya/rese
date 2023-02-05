@@ -6,9 +6,9 @@
 <div class="detail__wrapper">
   <div class="w48p w100p1150">
     <div class="flex">
-      <a href="#" class="detail__back-btn" onclick="history.back()">
+      <button type="button" class="detail__back-btn" onclick="history.back()">
         <i class="fa fa-angle-left" aria-hidden="true"></i>
-      </a>
+      </button>
       <h2 class="detail__shop-name">{{$shop->name}}</h2>
     </div>
 
@@ -75,6 +75,8 @@
           <option value="{{ $course->id }}">{{ $course->name}}(¥{{$course->price}})</option>
           @endforeach
         </select>
+
+        <p class="white mb20">コースのご予約には事前決済が必要です</p>
 
         <div class="booking-confirmation__wrapper">
           <table class="booking-confirmation">

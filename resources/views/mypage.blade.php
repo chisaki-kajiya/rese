@@ -68,12 +68,11 @@
               <th class="mypage-booking__content-head">Number</th>
               <td>
                 <select type="number" name="number" class="mypage-booking__input">
-                  @for ($i = 1; $i < 10; $i+=1) <option value="{{ $i }}" <?php if ($i == $booking->number) {
-                                                                            echo "selected";
-                                                                          } ?>>
+                  @for ($i = 1; $i < 10; $i+=1)
+                  <option value="{{ $i }}" <?php if ($i == $booking->number) {echo "selected";} ?>>
                     {{ $i }}人
-                    </option>
-                    @endfor
+                  </option>
+                  @endfor
                 </select>
               </td>
             </tr>
@@ -89,12 +88,11 @@
               <th class="mypage-booking__content-head">Time</th>
               <td>
                 <select type="time" name="time" class="mypage-booking__input">
-                  @for ($i = 17; $i < 22; $i+=1) <option value="{{ $i }}:00" <?php if ($i == date('H', strtotime($booking->start))) {
-                                                                                echo "selected";
-                                                                              } ?>>
+                  @for ($i = 17; $i < 22; $i+=1)
+                  <option value="{{ $i }}:00" <?php if ($i == date('H', strtotime($booking->start))) {echo "selected";} ?>>
                     {{ $i }}:00
-                    </option>
-                    @endfor
+                  </option>
+                  @endfor
                 </select>
               </td>
             </tr>
@@ -199,7 +197,7 @@
             <p>#{{ $like->genre_name }}</p>
           </div>
 
-          <div class="spacebtw mt20">
+          <div class="spacebtw align-center mt20">
 
             <form action="/detail" method="GET">
               <input type="hidden" name="id" value="{{ $like->shop_id }}">

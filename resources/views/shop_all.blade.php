@@ -44,7 +44,7 @@
       <h2 class="shop-card__name">{{$shop->name}}</h2>
       <p class="shop-card__tag--area">#{{$shop->area_name}} #{{$shop->genre_name}}</p>
 
-      <div class="spacebtw mt20">
+      <div class="spacebtw align-center mt20">
         <form action="/detail">
           <input type="hidden" name="id" value="{{$shop->id}}">
           <button class="blue-btn">詳しくみる</button>

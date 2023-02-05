@@ -5,9 +5,9 @@
 @section('content')
 <div class="eval-detail__container">
   <div class="flex">
-    <a href="#" class="detail__back-btn" onclick="history.back()">
+    <button type="button" class="detail__back-btn" onclick="history.back()">
       <i class="fa fa-angle-left" aria-hidden="true"></i>
-    </a>
+    </button>
     <h2 class="detail__shop-name">{{ $shop->name }}</h2>
   </div>
 

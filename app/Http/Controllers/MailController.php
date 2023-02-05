@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Booking;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
 class MailController extends Controller
@@ -61,10 +62,13 @@ class MailController extends Controller
 
     public function qrcode(Request $request)
     {
+        $id = Auth::id();
         $booking = Booking::query()
             ->select(
                 'bookings.id as id',
                 'users.name as user_name',
+                'users.id as guest_id',
+                'representatives.user_id as staff_id',
                 'shops.name as shop_name',
                 'bookings.number as number',
                 'bookings.start as start',
@@ -72,12 +76,17 @@ class MailController extends Controller
             )
             ->join('users', 'bookings.user_id', '=', 'users.id')
             ->join('shops', 'bookings.shop_id', '=', 'shops.id')
+            ->join('representatives', 'shops.id', '=', 'representatives.shop_id' )
             ->leftjoin('courses', 'bookings.course_id', '=', 'courses.id')
             ->where('bookings.id', $request->booking_id)
             ->first();
 
-        return view('check_qrcode', [
-            'booking' => $booking
-        ]);
+        if($booking->staff_id == $id){
+            return view('check_qrcode', [
+                'booking' => $booking
+            ]);
+        };
+
+        abort(403);
     }
 }
